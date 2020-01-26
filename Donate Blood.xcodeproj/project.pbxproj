@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B21E23F323D6C4A300D19FEB /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E23F223D6C4A300D19FEB /* iOSDropDown.swift */; };
 		B245496F23D56AF700776986 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245496E23D56AF700776986 /* AppDelegate.swift */; };
 		B245497123D56AF700776986 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245497023D56AF700776986 /* SceneDelegate.swift */; };
 		B245497323D56AF700776986 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245497223D56AF700776986 /* ViewController.swift */; };
 		B245497623D56AF700776986 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B245497423D56AF700776986 /* Main.storyboard */; };
 		B245497823D56AF800776986 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B245497723D56AF800776986 /* Assets.xcassets */; };
 		B245497B23D56AF800776986 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B245497923D56AF800776986 /* LaunchScreen.storyboard */; };
+		B245498723D56F5500776986 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245498623D56F5500776986 /* CustomSegmentedControl.swift */; };
+		B245498923D5734E00776986 /* IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245498823D5734E00776986 /* IBInspectable.swift */; };
+		B245498B23D588BD00776986 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245498A23D588BD00776986 /* CustomTextField.swift */; };
+		B29B112723DD6CE500359E72 /* DonarListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29B112623DD6CE500359E72 /* DonarListVC.swift */; };
+		B2A531A223D5AC7800E6C9FB /* signup.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A531A123D5AC7800E6C9FB /* signup.xib */; };
+		B2A531A423D5B46C00E6C9FB /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A531A323D5B46C00E6C9FB /* signup.swift */; };
+		B2C6C4DE23D97B1600FA77F7 /* DashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6C4DD23D97B1600FA77F7 /* DashBoardVC.swift */; };
+		B2C6C4E223D97BC900FA77F7 /* IteamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6C4E023D97BC900FA77F7 /* IteamCell.swift */; };
+		B2C6C4E323D97BC900FA77F7 /* IteamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C6C4E123D97BC900FA77F7 /* IteamCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B21E23F223D6C4A300D19FEB /* iOSDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSDropDown.swift; sourceTree = "<group>"; };
 		B245496B23D56AF700776986 /* Donate Blood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Donate Blood.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B245496E23D56AF700776986 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B245497023D56AF700776986 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +35,15 @@
 		B245497723D56AF800776986 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B245497A23D56AF800776986 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B245497C23D56AF800776986 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B245498623D56F5500776986 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		B245498823D5734E00776986 /* IBInspectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBInspectable.swift; sourceTree = "<group>"; };
+		B245498A23D588BD00776986 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B29B112623DD6CE500359E72 /* DonarListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarListVC.swift; sourceTree = "<group>"; };
+		B2A531A123D5AC7800E6C9FB /* signup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = signup.xib; sourceTree = "<group>"; };
+		B2A531A323D5B46C00E6C9FB /* signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
+		B2C6C4DD23D97B1600FA77F7 /* DashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardVC.swift; sourceTree = "<group>"; };
+		B2C6C4E023D97BC900FA77F7 /* IteamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IteamCell.swift; sourceTree = "<group>"; };
+		B2C6C4E123D97BC900FA77F7 /* IteamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IteamCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B21E23F123D6C3C900D19FEB /* unused files */ = {
+			isa = PBXGroup;
+			children = (
+				B2A531A323D5B46C00E6C9FB /* signup.swift */,
+				B2A531A123D5AC7800E6C9FB /* signup.xib */,
+			);
+			path = "unused files";
+			sourceTree = "<group>";
+		};
 		B245496223D56AF700776986 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +85,64 @@
 		B245496D23D56AF700776986 /* Donate Blood */ = {
 			isa = PBXGroup;
 			children = (
+				B21E23F123D6C3C900D19FEB /* unused files */,
+				B245498523D56B9E00776986 /* Extentions */,
+				B245498423D56B4600776986 /* Controller */,
+				B245498323D56B3A00776986 /* View */,
+				B245498223D56B1E00776986 /* Model */,
 				B245496E23D56AF700776986 /* AppDelegate.swift */,
 				B245497023D56AF700776986 /* SceneDelegate.swift */,
-				B245497223D56AF700776986 /* ViewController.swift */,
-				B245497423D56AF700776986 /* Main.storyboard */,
 				B245497723D56AF800776986 /* Assets.xcassets */,
-				B245497923D56AF800776986 /* LaunchScreen.storyboard */,
 				B245497C23D56AF800776986 /* Info.plist */,
 			);
 			path = "Donate Blood";
+			sourceTree = "<group>";
+		};
+		B245498223D56B1E00776986 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B245498323D56B3A00776986 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B2C6C4DF23D97B8100FA77F7 /* CollectionView XIB */,
+				B245497423D56AF700776986 /* Main.storyboard */,
+				B245497923D56AF800776986 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B245498423D56B4600776986 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B245497223D56AF700776986 /* ViewController.swift */,
+				B2C6C4DD23D97B1600FA77F7 /* DashBoardVC.swift */,
+				B29B112623DD6CE500359E72 /* DonarListVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B245498523D56B9E00776986 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				B245498623D56F5500776986 /* CustomSegmentedControl.swift */,
+				B245498823D5734E00776986 /* IBInspectable.swift */,
+				B245498A23D588BD00776986 /* CustomTextField.swift */,
+				B21E23F223D6C4A300D19FEB /* iOSDropDown.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		B2C6C4DF23D97B8100FA77F7 /* CollectionView XIB */ = {
+			isa = PBXGroup;
+			children = (
+				B2C6C4E023D97BC900FA77F7 /* IteamCell.swift */,
+				B2C6C4E123D97BC900FA77F7 /* IteamCell.xib */,
+			);
+			path = "CollectionView XIB";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +203,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C6C4E323D97BC900FA77F7 /* IteamCell.xib in Resources */,
 				B245497B23D56AF800776986 /* LaunchScreen.storyboard in Resources */,
+				B2A531A223D5AC7800E6C9FB /* signup.xib in Resources */,
 				B245497823D56AF800776986 /* Assets.xcassets in Resources */,
 				B245497623D56AF700776986 /* Main.storyboard in Resources */,
 			);
@@ -138,9 +218,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C6C4E223D97BC900FA77F7 /* IteamCell.swift in Sources */,
+				B245498B23D588BD00776986 /* CustomTextField.swift in Sources */,
+				B2A531A423D5B46C00E6C9FB /* signup.swift in Sources */,
+				B29B112723DD6CE500359E72 /* DonarListVC.swift in Sources */,
+				B2C6C4DE23D97B1600FA77F7 /* DashBoardVC.swift in Sources */,
 				B245497323D56AF700776986 /* ViewController.swift in Sources */,
 				B245496F23D56AF700776986 /* AppDelegate.swift in Sources */,
+				B21E23F323D6C4A300D19FEB /* iOSDropDown.swift in Sources */,
 				B245497123D56AF700776986 /* SceneDelegate.swift in Sources */,
+				B245498723D56F5500776986 /* CustomSegmentedControl.swift in Sources */,
+				B245498923D5734E00776986 /* IBInspectable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +375,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34B2K95NY3;
 				INFOPLIST_FILE = "Donate Blood/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +394,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 34B2K95NY3;
 				INFOPLIST_FILE = "Donate Blood/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
