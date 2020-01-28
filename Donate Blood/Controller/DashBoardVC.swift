@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAuth
 
 class DashBoardVC: UIViewController {
 
@@ -38,15 +38,26 @@ class DashBoardVC: UIViewController {
     // MARK: signout user
     @objc func tapSignOut(){
         print("signout btn taped")
-        do {
-            try Auth.auth().signOut()
-            let LoginPage = self.storyboard?.instantiateViewController(identifier: "ViewController") as! ViewController
-            self.view.window?.rootViewController = LoginPage
-            self.view.window?.makeKeyAndVisible()
-            
-        } catch let signOutError as NSError {
-          print ("Error signing out: %@", signOutError)
-        }
+                    let alert = UIAlertController(title: "Sign out?", message: "You can always access your content by signing back in", preferredStyle: .actionSheet)
+//        let alert = UIAlertController(title: "Sign out?", message: "You can always access your content by signing back in", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { _ in
+            //Cancel Action
+        }))
+        alert.addAction(UIAlertAction(title: "Sign out",style: UIAlertAction.Style.destructive,handler: {(_: UIAlertAction!) in
+            //Sign out action
+            do {
+                try Auth.auth().signOut()
+                let LoginPage = self.storyboard?.instantiateViewController(identifier: "ViewController") as! ViewController
+                self.view.window?.rootViewController = LoginPage
+                self.view.window?.makeKeyAndVisible()
+                
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+                
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
     }
     // collection view grid
     func setupGrid(){
