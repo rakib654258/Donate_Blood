@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class DashBoardVC: UIViewController {
 
@@ -22,11 +23,32 @@ class DashBoardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.title = "Dashboard"
+        
         // register nib
         collectionView.register(UINib(nibName: "IteamCell", bundle: nil), forCellWithReuseIdentifier: "IteamCell")
+        let signoutBtn = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(tapSignOut))
+        self.navigationItem.rightBarButtonItem = signoutBtn
+        // add multiple button
+//        let iteam1 = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(tapSignOut))
+//        let iteam2 = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(tapSignOut))
+//        self.navigationItem.leftBarButtonItems = [iteam1,iteam2]
         setupGrid()
         //profileImg.layer.cornerRadius = profileImg.layer.frame.height / 2
     }
+    // MARK: signout user
+    @objc func tapSignOut(){
+        print("signout btn taped")
+        do {
+            try Auth.auth().signOut()
+            let LoginPage = self.storyboard?.instantiateViewController(identifier: "ViewController") as! ViewController
+            self.view.window?.rootViewController = LoginPage
+            self.view.window?.makeKeyAndVisible()
+            
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+    }
+    // collection view grid
     func setupGrid(){
           let flow = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
           flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)

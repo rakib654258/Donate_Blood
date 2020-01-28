@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Donate_Blood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Donate_Blood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,7 +127,7 @@
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="qGn-vL-827"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K3y-7i-ml6">
                                                 <rect key="frame" x="8" y="242.00000000000006" width="310" height="50"/>
@@ -376,7 +376,7 @@
         <!--Dashboard-->
         <scene sceneID="iSI-Ur-KFn">
             <objects>
-                <viewController id="J2R-nE-LBr" customClass="DashBoardVC" customModule="Donate_Blood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashBoardVC" id="J2R-nE-LBr" customClass="DashBoardVC" customModule="Donate_Blood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b5j-7o-efP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -518,7 +518,7 @@
         <!--Navigation Controller-->
         <scene sceneID="kfo-3h-OOW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BKW-Al-AYm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DashBoardVCNavigation" automaticallyAdjustsScrollViewInsets="NO" id="BKW-Al-AYm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="356-Uq-Lqf">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

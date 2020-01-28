@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>729494010468-dabj45793b5prcg710vn97rkq6fggom6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.729494010468-dabj45793b5prcg710vn97rkq6fggom6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB7ec1JzTEHooRMi-gEyk8GSAAP771Xi8M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>729494010468</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>rakib654258.Donate-Blood</string>
+	<key>PROJECT_ID</key>
+	<string>blooddonate-4fa96</string>
+	<key>STORAGE_BUCKET</key>
+	<string>blooddonate-4fa96.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:729494010468:ios:36217bd4b5f04822e9bd71</string>
+	<key>DATABASE_URL</key>
+	<string>https://blooddonate-4fa96.firebaseio.com</string>
+</dict>
+</plist>
