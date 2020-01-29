@@ -10,6 +10,10 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
+//protocol UserUidDataPass {
+//    func user_uid(uid: String)
+//}
+
 class ViewController: UIViewController {
 // signin labels
     @IBOutlet weak var signinEmailLbl: UITextField!
@@ -28,6 +32,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var signupPassTF: UITextField!
     @IBOutlet weak var confirmPassTF: UITextField!
     @IBOutlet weak var signupErrorLbl: UILabel!
+
+    //var delegate:UserUidDataPass!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,9 +118,13 @@ class ViewController: UIViewController {
             let email = signupEmailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = signupPassTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let confirmPass = confirmPassTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            //show loading hud
+            //hud.show(in: view, animated: true)
+            hud.showHUD()
             //create the user
             Auth.auth().createUser(withEmail: email!, password: confirmPass!) { (result, err) in
                 if err != nil{
+                    hud.hideHUD()
                 //there was an error to creating the user
                     //self.signupErrorLbl.text = "Error creating user"
                     self.signupErrorLbl.text = err?.localizedDescription
@@ -125,11 +135,17 @@ class ViewController: UIViewController {
                     let db = Firestore.firestore()
                     db.collection("users").addDocument(data: ["name":name,"blood-group":blood,"location":location, "uid":result?.user.uid]) { (error) in
                         if error != nil{
+                            //hud.dismiss(animated: true)
+                            hud.hideHUD()
                             self.signupErrorLbl.text = "Error while saving user data"
                             self.signupErrorLbl.alpha = 1
                         }
                     }
+                    //hud.dismiss(animated: true)
+                    //dismiss the Loading HUD
+                    hud.hideHUD()
                     //transition to the home screen
+                    //self.delegate.user_uid(uid: (result?.user.uid)!)
                     self.TransitionToDashboard()
                     //print(self.signupNameTF.text)
                 }
@@ -141,14 +157,19 @@ class ViewController: UIViewController {
         //create the cleaned version of textfield
         let email = signinEmailLbl.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = signinPassLbl.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        //show loading hud
+        hud.showHUD()
         //signin the user
         Auth.auth().signIn(withEmail: email!, password: password!) { (result, error) in
             if error != nil{
+                hud.hideHUD()
                 self.errorLbl.text = error?.localizedDescription
                 //self.errorLbl.text = "error face to login"
                 self.errorLbl.alpha = 1
             }else{
-                print("user signed in")
+                print("user signed in with id: \(result?.user.uid ?? "no id ")")
+                hud.hideHUD()
+                //self.delegate.user_uid(uid: (result?.user.uid)!)
                 self.TransitionToDashboard()
             }
         }

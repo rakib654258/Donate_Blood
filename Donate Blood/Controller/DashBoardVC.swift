@@ -8,8 +8,8 @@
 
 import UIKit
 import FirebaseAuth
-
-class DashBoardVC: UIViewController {
+import Firebase
+class DashBoardVC: UIViewController{
 
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var profileName: UILabel!
@@ -23,7 +23,6 @@ class DashBoardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.title = "Dashboard"
-        
         // register nib
         collectionView.register(UINib(nibName: "IteamCell", bundle: nil), forCellWithReuseIdentifier: "IteamCell")
         let signoutBtn = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(tapSignOut))
@@ -35,6 +34,32 @@ class DashBoardVC: UIViewController {
         setupGrid()
         //profileImg.layer.cornerRadius = profileImg.layer.frame.height / 2
     }
+    override func viewWillAppear(_ animated: Bool) {
+        fetchUserData()
+    }
+    func fetchUserData(){
+        guard let userID = Auth.auth().currentUser?.uid else{return}
+        print("Current user id is: \(userID)")
+        //profileName.text = userID
+        
+        // get user data
+        let db = Firestore.firestore()
+        
+        //let docRef = db.collection("users").document("")
+//        db.collection("users").document("\(userID)").getDocument { (snapshot, error) in
+        db.collection("users").document("vv6XyrGdkWDQwXLBPs4g").getDocument { (snapshot, error) in
+            if let error = error{
+                print( "error getting user", error.localizedDescription)
+            }else{
+                if let data = snapshot?.data(){
+                    print((data["name"] as! String))
+                    self.profileName.text = (data["name"] as! String)
+                }
+            }
+            
+        }
+    }
+    
     // MARK: signout user
     @objc func tapSignOut(){
         print("signout btn taped")
@@ -59,6 +84,7 @@ class DashBoardVC: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
     // collection view grid
     func setupGrid(){
           let flow = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
