@@ -47,13 +47,14 @@ class DashBoardVC: UIViewController{
         
         //let docRef = db.collection("users").document("")
 //        db.collection("users").document("\(userID)").getDocument { (snapshot, error) in
-        db.collection("users").document("vv6XyrGdkWDQwXLBPs4g").getDocument { (snapshot, error) in
+        db.collection("users").document(userID).getDocument { (snapshot, error) in
             if let error = error{
                 print( "error getting user", error.localizedDescription)
             }else{
                 if let data = snapshot?.data(){
                     print((data["name"] as! String))
                     self.profileName.text = (data["name"] as! String)
+                    print(data["blood-group"])
                 }
             }
             

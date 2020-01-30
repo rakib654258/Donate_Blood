@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        TransitionToDashboard()
         // Do any additional setup after loading the view.
         // signupContrainer.regiter
         textFieldSetup()
@@ -58,6 +59,18 @@ class ViewController: UIViewController {
 //        signinViewLbl.alpha = 1
 //        signupViewLbl.alpha = 0
         //self.signupViewLbl.isHidden = true
+    }
+    
+    //check user logedin or not
+    override func viewWillAppear(_ animated: Bool) {
+      
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser == nil{
+            return
+        }else{
+            TransitionToDashboard()
+        }
     }
 
     @IBAction func customSegmentedControllerAction(_ sender: CustomSegmentedControl) {
@@ -133,7 +146,7 @@ class ViewController: UIViewController {
                 else{
                     //user create successfully, now store data
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["name":name,"blood-group":blood,"location":location, "uid":result?.user.uid]) { (error) in
+                    db.collection("users").document("\(result?.user.uid ?? "Profile")").setData(["name":name,"blood-group":blood,"location":location, "uid":result?.user.uid]) { (error) in
                         if error != nil{
                             //hud.dismiss(animated: true)
                             hud.hideHUD()
