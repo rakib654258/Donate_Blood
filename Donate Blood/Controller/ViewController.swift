@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bloodTF: DropDown!
     @IBOutlet weak var locationTF: UITextField!
     @IBOutlet weak var signupEmailTF: UITextField!
+    @IBOutlet weak var mobileTF: UITextField!
     @IBOutlet weak var signupPassTF: UITextField!
     @IBOutlet weak var confirmPassTF: UITextField!
     @IBOutlet weak var signupErrorLbl: UILabel!
@@ -52,6 +53,7 @@ class ViewController: UIViewController {
         //Utilities.styleTextField(signupAgeTf)
         Utilities.styleTextField(bloodTF)
         Utilities.styleTextField(locationTF)
+        Utilities.styleTextField(mobileTF)
         Utilities.styleTextField(signupEmailTF)
         Utilities.styleTextField(signupPassTF)
         Utilities.styleTextField(confirmPassTF)
@@ -105,7 +107,7 @@ class ViewController: UIViewController {
     // check the field and validate that the data is correct.
     func validateField() -> String?{
         //check that all fields are filled in
-        if signupNameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || bloodTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || locationTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || signupEmailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || signupPassTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || confirmPassTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+        if signupNameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || bloodTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || locationTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || mobileTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || signupEmailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || signupPassTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || confirmPassTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill in all fields"
         }
         // check if the password is secure
@@ -128,6 +130,7 @@ class ViewController: UIViewController {
             let name = signupNameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let blood =  bloodTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let location = locationTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let mobile = mobileTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = signupEmailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = signupPassTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let confirmPass = confirmPassTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -146,7 +149,7 @@ class ViewController: UIViewController {
                 else{
                     //user create successfully, now store data
                     let db = Firestore.firestore()
-                    db.collection("users").document("\(result?.user.uid ?? "Profile")").setData(["name":name,"blood-group":blood,"location":location, "uid":result?.user.uid]) { (error) in
+                    db.collection("users").document("\(result?.user.uid ?? "Profile")").setData(["name":name,"blood-group":blood,"location":location,"mobile": mobile, "uid":result?.user.uid]) { (error) in
                         if error != nil{
                             //hud.dismiss(animated: true)
                             hud.hideHUD()

@@ -12,6 +12,7 @@
 		B22C7AAE23E684F5009A7562 /* DonarListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C7AAC23E684F5009A7562 /* DonarListCollectionViewCell.swift */; };
 		B22C7AAF23E684F5009A7562 /* DonarListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B22C7AAD23E684F5009A7562 /* DonarListCollectionViewCell.xib */; };
 		B22C7AB123E6A8AC009A7562 /* donarDetailsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C7AB023E6A8AC009A7562 /* donarDetailsDataModel.swift */; };
+		B22C7AB323E6ECA6009A7562 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C7AB223E6ECA6009A7562 /* ProfileVC.swift */; };
 		B245496F23D56AF700776986 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245496E23D56AF700776986 /* AppDelegate.swift */; };
 		B245497123D56AF700776986 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245497023D56AF700776986 /* SceneDelegate.swift */; };
 		B245497323D56AF700776986 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245497223D56AF700776986 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 		B22C7AAC23E684F5009A7562 /* DonarListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarListCollectionViewCell.swift; sourceTree = "<group>"; };
 		B22C7AAD23E684F5009A7562 /* DonarListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonarListCollectionViewCell.xib; sourceTree = "<group>"; };
 		B22C7AB023E6A8AC009A7562 /* donarDetailsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = donarDetailsDataModel.swift; path = "Donate Blood/View/DonarListCollectionView/donarDetailsDataModel.swift"; sourceTree = SOURCE_ROOT; };
+		B22C7AB223E6ECA6009A7562 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B245496B23D56AF700776986 /* Donate Blood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Donate Blood.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B245496E23D56AF700776986 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B245497023D56AF700776986 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				B245497223D56AF700776986 /* ViewController.swift */,
 				B2C6C4DD23D97B1600FA77F7 /* DashBoardVC.swift */,
 				B29B112623DD6CE500359E72 /* DonarListVC.swift */,
+				B22C7AB223E6ECA6009A7562 /* ProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B22C7AB323E6ECA6009A7562 /* ProfileVC.swift in Sources */,
 				B2C6C4E223D97BC900FA77F7 /* IteamCell.swift in Sources */,
 				B245498B23D588BD00776986 /* CustomTextField.swift in Sources */,
 				B2A531A423D5B46C00E6C9FB /* signup.swift in Sources */,

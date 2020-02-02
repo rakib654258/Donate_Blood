@@ -15,7 +15,7 @@ class DashBoardVC: UIViewController{
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     var iteamArray = ["DONARS LIST","TOTAL DONAR","FAQ","ABOUT US","REQUEST BLOOD"]
-    
+    var userName = ""
     //var iteamArray = ["ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS"]
     var estimateWidth = 160.0
     var cellMarginSize = 8.0
@@ -53,6 +53,7 @@ class DashBoardVC: UIViewController{
             }else{
                 if let data = snapshot?.data(){
                     print((data["name"] as! String))
+                    self.userName = data["name"] as! String
                     self.profileName.text = (data["name"] as! String)
                     print(data["blood-group"])
                 }
@@ -60,6 +61,17 @@ class DashBoardVC: UIViewController{
             
         }
     }
+    
+    
+    @IBAction func ProfileBtnAction(_ sender: UIButton) {
+        let profile = self.storyboard?.instantiateViewController(identifier: "ProfileVC")
+        //self.navigationController?.pushViewController(dashboard, animated: true)
+        //print(userName)
+        
+        self.view.window?.rootViewController = profile
+        self.view.window?.makeKeyAndVisible()
+    }
+    
     
     // MARK: signout user
     @objc func tapSignOut(){
