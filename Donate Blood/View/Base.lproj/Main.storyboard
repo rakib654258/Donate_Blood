@@ -422,7 +422,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Qec-wk-qZQ" secondAttribute="bottom" constant="8" id="0Rl-8X-9Pr"/>
                                     <constraint firstItem="Qec-wk-qZQ" firstAttribute="top" secondItem="lE3-dJ-0Wv" secondAttribute="bottom" constant="8" id="4dO-ET-iay"/>
@@ -499,17 +499,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Donar list VC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBi-Ec-bdF">
-                                <rect key="frame" x="45" y="205" width="349" height="115"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcL-sO-b8u" customClass="CustomSegmentedControl" customModule="Donate_Blood" customModuleProvider="target">
+                                <rect key="frame" x="8" y="52" width="398" height="55"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="rWd-mp-VfT"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitles" value="A+,A-,B+,B-,AB+,AB-,O+,O-"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
+                                        <color key="value" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorTextColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lvC-4K-D0Q">
+                                <rect key="frame" x="8" y="115" width="398" height="747"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p2R-rf-5Bj">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="usd-QW-4KV">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wPC-OD-4yc">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="dUn-7Y-Kyx" id="xf9-03-iGx"/>
+                                    <outlet property="delegate" destination="dUn-7Y-Kyx" id="BOg-9n-gFy"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bcL-sO-b8u" firstAttribute="top" secondItem="hbY-Pa-mdp" secondAttribute="top" constant="8" id="8YC-TE-muo"/>
+                            <constraint firstItem="bcL-sO-b8u" firstAttribute="leading" secondItem="hbY-Pa-mdp" secondAttribute="leading" constant="8" id="Nez-jL-zG4"/>
+                            <constraint firstItem="hbY-Pa-mdp" firstAttribute="bottom" secondItem="lvC-4K-D0Q" secondAttribute="bottom" id="W3g-XA-vX3"/>
+                            <constraint firstItem="hbY-Pa-mdp" firstAttribute="trailing" secondItem="bcL-sO-b8u" secondAttribute="trailing" constant="8" id="Xec-0h-oiu"/>
+                            <constraint firstItem="hbY-Pa-mdp" firstAttribute="trailing" secondItem="lvC-4K-D0Q" secondAttribute="trailing" constant="8" id="i7X-iA-E8X"/>
+                            <constraint firstItem="lvC-4K-D0Q" firstAttribute="leading" secondItem="hbY-Pa-mdp" secondAttribute="leading" constant="8" id="nYL-2e-I7q"/>
+                            <constraint firstItem="lvC-4K-D0Q" firstAttribute="top" secondItem="bcL-sO-b8u" secondAttribute="bottom" constant="8" id="qR9-rj-IR3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hbY-Pa-mdp"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="lvC-4K-D0Q" id="7Nc-SG-yqU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFA-Cx-je6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

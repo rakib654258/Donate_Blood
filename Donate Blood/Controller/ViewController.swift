@@ -138,7 +138,7 @@ class ViewController: UIViewController {
             Auth.auth().createUser(withEmail: email!, password: confirmPass!) { (result, err) in
                 if err != nil{
                     hud.hideHUD()
-                //there was an error to creating the user
+                    //there was an error to creating the user
                     //self.signupErrorLbl.text = "Error creating user"
                     self.signupErrorLbl.text = err?.localizedDescription
                     self.signupErrorLbl.alpha = 1
@@ -160,7 +160,6 @@ class ViewController: UIViewController {
                     //transition to the home screen
                     //self.delegate.user_uid(uid: (result?.user.uid)!)
                     self.TransitionToDashboard()
-                    //print(self.signupNameTF.text)
                 }
             }
         }
