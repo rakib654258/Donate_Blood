@@ -21,7 +21,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var mobileTF: UITextField!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var locationTF: UITextField!
- 
+    @IBOutlet weak var updateProfileLbl: UIButton!
+    
     var proName = ""
     
     override func viewDidLoad() {
@@ -38,6 +39,7 @@ class ProfileVC: UIViewController {
         profileBGView.layer.cornerRadius = profileBGView.frame.height / 2
         profileImg.layer.cornerRadius = profileImg.frame.height / 2
         editBtnLbl.layer.cornerRadius = editBtnLbl.frame.height / 2
+        updateProfileLbl.layer.cornerRadius = updateProfileLbl.frame.height / 2
     }
     
     func elementsSetup(){
@@ -50,7 +52,13 @@ class ProfileVC: UIViewController {
         
         // disable textfield editing
         bloodTF.isUserInteractionEnabled = false
+        nameTF.isUserInteractionEnabled = false
+        ageTF.isUserInteractionEnabled = false
+        locationTF.isUserInteractionEnabled = false
+        mobileTF.isUserInteractionEnabled = false
         availableSwitch.isUserInteractionEnabled = false
+        
+        updateProfileLbl.isHidden = true
     }
     func fetchUserData(){
             hud.showHUD()
@@ -84,7 +92,16 @@ class ProfileVC: UIViewController {
     
     
     @IBAction func editOrUpdateAction(_ sender: UIButton) {
+        updateProfileLbl.isHidden = false
+        editBtnLbl.isHidden = true
+        nameTF.isUserInteractionEnabled = true
+        locationTF.isUserInteractionEnabled = true
+        ageTF.isUserInteractionEnabled = true
+        mobileTF.isUserInteractionEnabled = true
+        availableSwitch.isUserInteractionEnabled = true
     
+    }
+    @IBAction func updateProfileAction(_ sender: UIButton) {
     }
     
 }
