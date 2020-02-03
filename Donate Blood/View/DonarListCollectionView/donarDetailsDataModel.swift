@@ -13,17 +13,17 @@ class donarProfile{
     var name: String
     var blood_group: String
     var location: String
-    //var profile_img: UIImage?
-    //var mobile: String
-    //var available: Bool
+    var profile_img: String?
+    var mobile: String
+    var available: Bool?
     
-//    init(name: String, blood_group: String, location: String, profile_img: UIImage?, mobile: String, available: Bool) {
-    init(name: String, blood_group: String, location: String) {
+    init(name: String, blood_group: String, location: String, profile_img: String?, mobile: String, available: Bool?) {
+//    init(name: String, blood_group: String, location: String) {
         self.name = name
         self.blood_group = blood_group
         self.location = location
-        //self.profile_img = profile_img
-        //self.mobile = mobile
-        //self.available = available
+        self.profile_img = profile_img
+        self.mobile = mobile
+        self.available = available
     }
 }

@@ -40,11 +40,8 @@ class DashBoardVC: UIViewController{
     func fetchUserData(){
         guard let userID = Auth.auth().currentUser?.uid else{return}
         print("Current user id is: \(userID)")
-        //profileName.text = userID
-        
         // get user data
         let db = Firestore.firestore()
-        
         //let docRef = db.collection("users").document("")
 //        db.collection("users").document("\(userID)").getDocument { (snapshot, error) in
         db.collection("users").document(userID).getDocument { (snapshot, error) in
