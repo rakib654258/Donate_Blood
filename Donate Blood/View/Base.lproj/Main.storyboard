@@ -786,7 +786,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elH-s9-KPN">
-                                <rect key="frame" x="117" y="779" width="180" height="50"/>
+                                <rect key="frame" x="117" y="780" width="180" height="50"/>
                                 <color key="backgroundColor" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="A34-Ng-1hv"/>
@@ -801,17 +801,27 @@
                                     <action selector="updateProfileAction:" destination="tTe-0C-wak" eventType="touchUpInside" id="cMv-75-dNN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aff-x0-g2o">
+                                <rect key="frame" x="32" y="750.66666666666663" width="350" height="21.333333333333371"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="19"/>
+                                <color key="textColor" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="yB3-tD-TcW" firstAttribute="top" secondItem="Aff-x0-g2o" secondAttribute="bottom" constant="8" id="17u-hc-3WG"/>
                             <constraint firstItem="Q2B-8R-M0f" firstAttribute="top" secondItem="0xn-k3-4ML" secondAttribute="bottom" constant="16" id="5au-FG-5Qp"/>
+                            <constraint firstItem="pha-wx-LUh" firstAttribute="trailing" secondItem="Aff-x0-g2o" secondAttribute="trailing" constant="32" id="7IO-yf-2Hi"/>
                             <constraint firstItem="Q2B-8R-M0f" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="8gz-gk-v2Y"/>
                             <constraint firstItem="pha-wx-LUh" firstAttribute="trailing" secondItem="Q2B-8R-M0f" secondAttribute="trailing" constant="32" id="AQ9-vJ-l3d"/>
                             <constraint firstItem="pha-wx-LUh" firstAttribute="bottom" secondItem="yB3-tD-TcW" secondAttribute="bottom" constant="32" id="Aga-uJ-t00"/>
                             <constraint firstItem="Q2B-8R-M0f" firstAttribute="leading" secondItem="pha-wx-LUh" secondAttribute="leading" constant="32" id="EbA-ZL-wfb"/>
                             <constraint firstItem="yB3-tD-TcW" firstAttribute="top" relation="lessThanOrEqual" secondItem="Q2B-8R-M0f" secondAttribute="bottom" priority="750" constant="16" id="IHP-ow-UUp"/>
                             <constraint firstItem="elH-s9-KPN" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="L2M-au-EL1"/>
-                            <constraint firstItem="pha-wx-LUh" firstAttribute="bottom" secondItem="elH-s9-KPN" secondAttribute="bottom" constant="33" id="a2s-LC-tAH"/>
+                            <constraint firstItem="Aff-x0-g2o" firstAttribute="leading" secondItem="pha-wx-LUh" secondAttribute="leading" constant="32" id="Z47-7g-Lrx"/>
+                            <constraint firstItem="pha-wx-LUh" firstAttribute="bottom" secondItem="elH-s9-KPN" secondAttribute="bottom" constant="32" id="a2s-LC-tAH"/>
+                            <constraint firstItem="Aff-x0-g2o" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="d2t-Mt-JmR"/>
                             <constraint firstItem="yB3-tD-TcW" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="han-IQ-k8V"/>
                             <constraint firstItem="0xn-k3-4ML" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="lxC-Ii-Pqz"/>
                             <constraint firstItem="0xn-k3-4ML" firstAttribute="top" secondItem="pha-wx-LUh" secondAttribute="top" constant="16" id="wqF-b4-KOZ"/>
@@ -823,6 +833,7 @@
                         <outlet property="availableSwitch" destination="OIU-tQ-YFJ" id="IfQ-aA-Jk8"/>
                         <outlet property="bloodTF" destination="nqj-sh-qRY" id="gMx-0D-svq"/>
                         <outlet property="editBtnLbl" destination="yB3-tD-TcW" id="oWu-lp-hGa"/>
+                        <outlet property="errorLbl" destination="Aff-x0-g2o" id="CtQ-eK-0di"/>
                         <outlet property="locationTF" destination="81s-dZ-13v" id="h2I-nD-5oK"/>
                         <outlet property="mobileTF" destination="ZsS-b0-zCI" id="e6x-j7-WGg"/>
                         <outlet property="nameTF" destination="rWf-k1-Liw" id="Xl3-j9-6zo"/>
@@ -833,7 +844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wa5-Oh-oc5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3558" y="115"/>
+            <point key="canvasLocation" x="3557.971014492754" y="114.50892857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kfo-3h-OOW">

@@ -52,7 +52,7 @@ class DashBoardVC: UIViewController{
                     print((data["name"] as! String))
                     self.userName = data["name"] as! String
                     self.profileName.text = (data["name"] as! String)
-                    print(data["blood-group"])
+                    //print(data["blood-group"])
                 }
             }
             
@@ -62,11 +62,11 @@ class DashBoardVC: UIViewController{
     
     @IBAction func ProfileBtnAction(_ sender: UIButton) {
         let profile = self.storyboard?.instantiateViewController(identifier: "ProfileVC")
-        //self.navigationController?.pushViewController(dashboard, animated: true)
+        self.navigationController?.pushViewController(profile!, animated: true)
         //print(userName)
         
-        self.view.window?.rootViewController = profile
-        self.view.window?.makeKeyAndVisible()
+//        self.view.window?.rootViewController = profile
+//        self.view.window?.makeKeyAndVisible()
     }
     
     

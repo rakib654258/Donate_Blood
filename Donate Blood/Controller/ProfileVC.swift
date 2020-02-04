@@ -13,6 +13,7 @@ class ProfileVC: UIViewController {
 
     @IBOutlet weak var profileBGView: CustomView!
     @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var errorLbl: UILabel!
     
     @IBOutlet weak var ageTF: UITextField!
     @IBOutlet weak var editBtnLbl: UIButton!
@@ -23,12 +24,17 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var locationTF: UITextField!
     @IBOutlet weak var updateProfileLbl: UIButton!
     
-    var proName = ""
+    let db = Firestore.firestore()
     
+    var proName = ""
+    var currentUserID = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(proName)
-        // Do any additional setup after loading the view.
+        // navigationbar back button
+        self.title = "Profile"
+//        let backButton = UIBarButtonItem()
+//        backButton.title = "Back"
+//        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         roundShape()
         elementsSetup()
     }
@@ -59,13 +65,14 @@ class ProfileVC: UIViewController {
         availableSwitch.isUserInteractionEnabled = false
         
         updateProfileLbl.isHidden = true
+        errorLbl.alpha = 0
     }
     func fetchUserData(){
             hud.showHUD()
             guard let userID = Auth.auth().currentUser?.uid else{return}
             print("Current user id is: \(userID)")
+            currentUserID = userID
             // get user data
-            let db = Firestore.firestore()
             db.collection("users").document(userID).getDocument { (snapshot, error) in
                 if let error = error{
                     hud.hideHUD()
@@ -78,17 +85,17 @@ class ProfileVC: UIViewController {
                         self.locationTF.text = data["location"] as? String
                         self.bloodTF.text = data["blood-group"] as? String
                         self.mobileTF.text = data["mobile"] as? String ?? "+88"
-                        let available = data["available"] as? Bool
-                        if available == true{
-                            self.availableSwitch.isOn = true
-                        }else{
-                            self.availableSwitch.isOn = false
-                        }
+                        self.availableSwitch.isOn = data["available"] as? Bool ?? true
+//                        if available == true{
+//                            self.availableSwitch.isOn = true
+//                        }else{
+//                            self.availableSwitch.isOn = false
+//                        }
                     }
                 }
                 
             }
-    }
+        }
     
     
     @IBAction func editOrUpdateAction(_ sender: UIButton) {
@@ -102,6 +109,59 @@ class ProfileVC: UIViewController {
     
     }
     @IBAction func updateProfileAction(_ sender: UIButton) {
+        updateProfile()
+        
     }
-    
+    func validateField() -> String?{
+        //check that all fields are filled in
+        if nameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || bloodTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || locationTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || mobileTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || ageTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+            return "Please fill in all fields"
+        }
+       return nil
+    }
+    func updateProfile(){
+        //validate the fields
+        let error = validateField()
+        if error != nil{
+            //There's something wrong with the filed, show error
+            errorLbl.text = error
+            errorLbl.alpha = 1
+        }
+        else{
+            //create cleaned versions of data
+            let name = nameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let blood =  bloodTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let location = locationTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let mobile = mobileTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let age = ageTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            var available = true
+            if availableSwitch.isOn == false{
+                available = false
+            }
+            hud.showHUD()
+            //update user data
+            let userRef = db.collection("users").document(currentUserID)
+            // set updated data
+            userRef.updateData([
+                "name": name!,
+                "age": age!,
+                "blood-group": blood!,
+                "location": location!,
+                "mobile": mobile!,
+                "available": available,
+                "lastUpdated": FieldValue.serverTimestamp()
+            ]) { (error) in
+                if let error = error{
+                    hud.hideHUD()
+                    self.errorLbl.text = error.localizedDescription
+                    print("Error Updating document: \(error)")
+                }else{
+                    hud.hideHUD()
+                    self.viewDidLoad()
+                    self.editBtnLbl.isHidden = false
+                    print("Document Successfully updated")
+                }
+            }
+        }
+    }
 }
