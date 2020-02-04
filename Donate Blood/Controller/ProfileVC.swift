@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
+
 
 class ProfileVC: UIViewController {
 
@@ -15,6 +17,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var errorLbl: UILabel!
     
+    @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var proPicEditBtn: UIButton!
     @IBOutlet weak var ageTF: UITextField!
     @IBOutlet weak var editBtnLbl: UIButton!
     @IBOutlet weak var availableSwitch: UISwitch!
@@ -25,6 +29,9 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var updateProfileLbl: UIButton!
     
     let db = Firestore.firestore()
+    
+    var profileImage: UIImage? = nil
+    var profileImageUrl = ""
     
     var proName = ""
     var currentUserID = ""
@@ -46,6 +53,8 @@ class ProfileVC: UIViewController {
         profileImg.layer.cornerRadius = profileImg.frame.height / 2
         editBtnLbl.layer.cornerRadius = editBtnLbl.frame.height / 2
         updateProfileLbl.layer.cornerRadius = updateProfileLbl.frame.height / 2
+        proPicEditBtn.layer.cornerRadius = proPicEditBtn.frame.height / 2
+        cancelBtn.layer.cornerRadius = cancelBtn.frame.height / 2
     }
     
     func elementsSetup(){
@@ -65,6 +74,9 @@ class ProfileVC: UIViewController {
         availableSwitch.isUserInteractionEnabled = false
         
         updateProfileLbl.isHidden = true
+        cancelBtn.isHidden = true
+        proPicEditBtn.isHidden = true
+        
         errorLbl.alpha = 0
     }
     func fetchUserData(){
@@ -86,11 +98,19 @@ class ProfileVC: UIViewController {
                         self.bloodTF.text = data["blood-group"] as? String
                         self.mobileTF.text = data["mobile"] as? String ?? "+88"
                         self.availableSwitch.isOn = data["available"] as? Bool ?? true
-//                        if available == true{
-//                            self.availableSwitch.isOn = true
-//                        }else{
-//                            self.availableSwitch.isOn = false
-//                        }
+                        // MARK: download image from firebase
+                        if let profileImgUrl = data["imageUrl"]{
+                            let url = URL(string: profileImgUrl as! String)
+                            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                                if error != nil{
+                                    print(error?.localizedDescription as Any)
+                                    return
+                                }
+                                DispatchQueue.main.async {
+                                    self.profileImg.image = UIImage(data: data!)
+                                }
+                            }).resume()
+                        }
                     }
                 }
                 
@@ -100,6 +120,8 @@ class ProfileVC: UIViewController {
     
     @IBAction func editOrUpdateAction(_ sender: UIButton) {
         updateProfileLbl.isHidden = false
+        cancelBtn.isHidden = false
+        proPicEditBtn.isHidden = false
         editBtnLbl.isHidden = true
         nameTF.isUserInteractionEnabled = true
         locationTF.isUserInteractionEnabled = true
@@ -141,7 +163,39 @@ class ProfileVC: UIViewController {
             hud.showHUD()
             //update user data
             let userRef = db.collection("users").document(currentUserID)
-            // set updated data
+            
+            // MARK: image set to firebase storage
+            // load the profile image
+            guard let imageSelected = self.profileImage else{
+                print("image nil")
+                return
+            }
+            guard let imageData = imageSelected.jpegData(compressionQuality: 0.5) else {
+                return
+            }
+            let storageRef = Storage.storage().reference(forURL: "gs://blooddonate-4fa96.appspot.com")
+            let storageProfileRef = storageRef.child("profile").child(currentUserID)
+            
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpg"
+            
+            storageProfileRef.putData(imageData, metadata: metaData) { (storageMetaData, error) in
+                if error != nil{
+                    print(error?.localizedDescription as Any)
+                    return
+                }else{
+                    print("Successfully uploaded image")
+                }
+                storageProfileRef.downloadURL { (url, error) in
+                    if let metaImageUrl = url?.absoluteString{
+                        print("url:",metaImageUrl)
+                        self.profileImageUrl = metaImageUrl
+                        userRef.updateData([
+                            "imageUrl": self.profileImageUrl,
+                        ])}}
+            }
+        
+            // MARK: set user updated data
             userRef.updateData([
                 "name": name!,
                 "age": age!,
@@ -159,9 +213,61 @@ class ProfileVC: UIViewController {
                     hud.hideHUD()
                     self.viewDidLoad()
                     self.editBtnLbl.isHidden = false
+                    
                     print("Document Successfully updated")
                 }
             }
         }
     }
+    
+    
+    @IBAction func cancelAction(_ sender: UIButton) {
+        let profile = self.storyboard?.instantiateViewController(identifier: "DashBoardVC")
+        self.navigationController?.pushViewController(profile!, animated: true)
+    }
+    
+    @IBAction func proPicEditAction(_ sender: UIButton) {
+        photoChoseActionSheet()
+    }
+    
+    
+}
+
+extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    // MARK: image picker Action Sheet
+    func photoChoseActionSheet(){
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        
+        let actionSheet = UIAlertController(title: "Choose Source", message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            }else{
+                print("Camera not available")
+            }
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{return}
+        profileImage = pickedImage
+        profileImg.image = pickedImage
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
 }

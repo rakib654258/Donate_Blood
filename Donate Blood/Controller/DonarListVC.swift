@@ -55,8 +55,9 @@ class DonarListVC: UIViewController {
                     print(location as Any)
                     let profile = data["profile_img"] ?? "nil"
                     let mobile = data["mobile"] ?? "nil"
+                    let age = data["age"] ?? "nil"
                     let available = data["available"] ?? true
-                    let User = donarProfile(name: name as! String, blood_group: blood as! String, location: location as! String, profile_img: (profile as! String), mobile: mobile as! String, available: (available != nil))
+                    let User = donarProfile(name: name as! String, blood_group: blood as! String, age: age as! String, location: location as! String, profile_img: (profile as! String), mobile: mobile as! String, available: (available != nil))
 //                    let User = donarProfile(name: name as! String, blood_group: blood as! String, location: location as! String)
                     
                     self.profile.append(User)

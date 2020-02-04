@@ -12,12 +12,13 @@ import UIKit
 class donarProfile{
     var name: String
     var blood_group: String
+    var age: String? = nil
     var location: String
-    var profile_img: String?
+    var profile_img: String? = nil
     var mobile: String
     var available: Bool?
     
-    init(name: String, blood_group: String, location: String, profile_img: String?, mobile: String, available: Bool?) {
+    init(name: String, blood_group: String, age: String?, location: String, profile_img: String?, mobile: String, available: Bool?) {
 //    init(name: String, blood_group: String, location: String) {
         self.name = name
         self.blood_group = blood_group
@@ -25,5 +26,6 @@ class donarProfile{
         self.profile_img = profile_img
         self.mobile = mobile
         self.available = available
+        self.age = age
     }
 }

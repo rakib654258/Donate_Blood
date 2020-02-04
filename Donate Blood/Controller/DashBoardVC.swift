@@ -51,7 +51,9 @@ class DashBoardVC: UIViewController{
                 if let data = snapshot?.data(){
                     print((data["name"] as! String))
                     self.userName = data["name"] as! String
-                    self.profileName.text = (data["name"] as! String)
+                    //self.profileImg.image = UIImage(named: data["imageUrl"] as! String)
+                    //print(data["imageUrl"] as! String)
+                    self.profileName.text = self.userName//(data["name"] as! String)
                     //print(data["blood-group"])
                 }
             }

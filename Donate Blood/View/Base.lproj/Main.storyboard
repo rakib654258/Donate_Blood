@@ -603,13 +603,28 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="TXb-wC-5Ja">
                                         <rect key="frame" x="8" y="8" width="144" height="144"/>
                                     </imageView>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdo-Fq-861">
+                                        <rect key="frame" x="8" y="8" width="144" height="144"/>
+                                        <color key="backgroundColor" red="0.30191406770640589" green="0.40984824033887329" blue="0.66666668653488159" alpha="0.32296125856164393" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="proPicEditAction:" destination="tTe-0C-wak" eventType="touchUpInside" id="D0t-H7-BOp"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="Jdo-Fq-861" firstAttribute="bottom" secondItem="TXb-wC-5Ja" secondAttribute="bottom" id="4D1-Px-VUO"/>
                                     <constraint firstAttribute="width" secondItem="0xn-k3-4ML" secondAttribute="height" multiplier="1:1" id="7Ab-3p-tAg"/>
+                                    <constraint firstItem="Jdo-Fq-861" firstAttribute="trailing" secondItem="TXb-wC-5Ja" secondAttribute="trailing" id="9xw-1b-bnX"/>
                                     <constraint firstAttribute="trailing" secondItem="TXb-wC-5Ja" secondAttribute="trailing" constant="8" id="FWe-m0-DMN"/>
                                     <constraint firstAttribute="bottom" secondItem="TXb-wC-5Ja" secondAttribute="bottom" constant="8" id="ViC-R0-1t2"/>
                                     <constraint firstAttribute="height" constant="160" id="YGN-lY-mZ5"/>
+                                    <constraint firstItem="Jdo-Fq-861" firstAttribute="leading" secondItem="TXb-wC-5Ja" secondAttribute="leading" id="Z7J-z4-qL4"/>
+                                    <constraint firstItem="Jdo-Fq-861" firstAttribute="top" secondItem="TXb-wC-5Ja" secondAttribute="top" id="ZLI-LY-w0h"/>
                                     <constraint firstItem="TXb-wC-5Ja" firstAttribute="top" secondItem="0xn-k3-4ML" secondAttribute="top" constant="8" id="b1o-ER-9IO"/>
                                     <constraint firstItem="TXb-wC-5Ja" firstAttribute="leading" secondItem="0xn-k3-4ML" secondAttribute="leading" constant="8" id="ich-7v-pEl"/>
                                 </constraints>
@@ -785,22 +800,41 @@
                                     <action selector="editOrUpdateAction:" destination="tTe-0C-wak" eventType="touchUpInside" id="OQY-f5-sSU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elH-s9-KPN">
-                                <rect key="frame" x="117" y="780" width="180" height="50"/>
-                                <color key="backgroundColor" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="A34-Ng-1hv"/>
-                                    <constraint firstAttribute="width" constant="180" id="hd7-Z5-WRa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
-                                <state key="normal" title="Update Profile">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="editOrUpdateAction:" destination="tTe-0C-wak" eventType="touchUpInside" id="8Fc-az-Wai"/>
-                                    <action selector="updateProfileAction:" destination="tTe-0C-wak" eventType="touchUpInside" id="cMv-75-dNN"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cn8-PD-O5I">
+                                <rect key="frame" x="32" y="830" width="350" height="0.0"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elH-s9-KPN">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
+                                        <color key="backgroundColor" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="aOB-Dy-YIW"/>
+                                            <constraint firstAttribute="width" constant="180" id="bAl-da-KVH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                        <state key="normal" title="Update Profile">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editOrUpdateAction:" destination="tTe-0C-wak" eventType="touchUpInside" id="8Fc-az-Wai"/>
+                                            <action selector="updateProfileAction:" destination="tTe-0C-wak" eventType="touchUpInside" id="cMv-75-dNN"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVl-HP-gKz">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
+                                        <color key="backgroundColor" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hzS-mG-X0N"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelAction:" destination="tTe-0C-wak" eventType="touchUpInside" id="s86-Lh-AIt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aff-x0-g2o">
                                 <rect key="frame" x="32" y="750.66666666666663" width="350" height="21.333333333333371"/>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="19"/>
@@ -810,20 +844,21 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="yB3-tD-TcW" firstAttribute="top" secondItem="Aff-x0-g2o" secondAttribute="bottom" constant="8" id="17u-hc-3WG"/>
+                            <constraint firstItem="cn8-PD-O5I" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="0SX-fj-oYL"/>
                             <constraint firstItem="Q2B-8R-M0f" firstAttribute="top" secondItem="0xn-k3-4ML" secondAttribute="bottom" constant="16" id="5au-FG-5Qp"/>
-                            <constraint firstItem="pha-wx-LUh" firstAttribute="trailing" secondItem="Aff-x0-g2o" secondAttribute="trailing" constant="32" id="7IO-yf-2Hi"/>
+                            <constraint firstItem="Aff-x0-g2o" firstAttribute="leading" secondItem="pha-wx-LUh" secondAttribute="leading" constant="32" id="6jd-KQ-UU8"/>
                             <constraint firstItem="Q2B-8R-M0f" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="8gz-gk-v2Y"/>
                             <constraint firstItem="pha-wx-LUh" firstAttribute="trailing" secondItem="Q2B-8R-M0f" secondAttribute="trailing" constant="32" id="AQ9-vJ-l3d"/>
                             <constraint firstItem="pha-wx-LUh" firstAttribute="bottom" secondItem="yB3-tD-TcW" secondAttribute="bottom" constant="32" id="Aga-uJ-t00"/>
                             <constraint firstItem="Q2B-8R-M0f" firstAttribute="leading" secondItem="pha-wx-LUh" secondAttribute="leading" constant="32" id="EbA-ZL-wfb"/>
                             <constraint firstItem="yB3-tD-TcW" firstAttribute="top" relation="lessThanOrEqual" secondItem="Q2B-8R-M0f" secondAttribute="bottom" priority="750" constant="16" id="IHP-ow-UUp"/>
-                            <constraint firstItem="elH-s9-KPN" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="L2M-au-EL1"/>
-                            <constraint firstItem="Aff-x0-g2o" firstAttribute="leading" secondItem="pha-wx-LUh" secondAttribute="leading" constant="32" id="Z47-7g-Lrx"/>
-                            <constraint firstItem="pha-wx-LUh" firstAttribute="bottom" secondItem="elH-s9-KPN" secondAttribute="bottom" constant="32" id="a2s-LC-tAH"/>
-                            <constraint firstItem="Aff-x0-g2o" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="d2t-Mt-JmR"/>
+                            <constraint firstItem="pha-wx-LUh" firstAttribute="bottom" secondItem="cn8-PD-O5I" secondAttribute="bottom" constant="32" id="S1e-um-HzZ"/>
+                            <constraint firstItem="pha-wx-LUh" firstAttribute="trailing" secondItem="cn8-PD-O5I" secondAttribute="trailing" constant="32" id="Slj-Ie-eKv"/>
+                            <constraint firstItem="yB3-tD-TcW" firstAttribute="top" secondItem="Aff-x0-g2o" secondAttribute="bottom" constant="8" id="cz7-aa-nxt"/>
+                            <constraint firstItem="pha-wx-LUh" firstAttribute="trailing" secondItem="Aff-x0-g2o" secondAttribute="trailing" constant="32" id="fT8-sK-vmB"/>
                             <constraint firstItem="yB3-tD-TcW" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="han-IQ-k8V"/>
                             <constraint firstItem="0xn-k3-4ML" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="lxC-Ii-Pqz"/>
+                            <constraint firstItem="cn8-PD-O5I" firstAttribute="leading" secondItem="pha-wx-LUh" secondAttribute="leading" constant="32" id="sxq-Gf-arL"/>
                             <constraint firstItem="0xn-k3-4ML" firstAttribute="top" secondItem="pha-wx-LUh" secondAttribute="top" constant="16" id="wqF-b4-KOZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pha-wx-LUh"/>
@@ -832,11 +867,13 @@
                         <outlet property="ageTF" destination="cK2-Mq-tdO" id="LTV-0W-2E1"/>
                         <outlet property="availableSwitch" destination="OIU-tQ-YFJ" id="IfQ-aA-Jk8"/>
                         <outlet property="bloodTF" destination="nqj-sh-qRY" id="gMx-0D-svq"/>
+                        <outlet property="cancelBtn" destination="XVl-HP-gKz" id="qYc-Ht-FuE"/>
                         <outlet property="editBtnLbl" destination="yB3-tD-TcW" id="oWu-lp-hGa"/>
                         <outlet property="errorLbl" destination="Aff-x0-g2o" id="CtQ-eK-0di"/>
                         <outlet property="locationTF" destination="81s-dZ-13v" id="h2I-nD-5oK"/>
                         <outlet property="mobileTF" destination="ZsS-b0-zCI" id="e6x-j7-WGg"/>
                         <outlet property="nameTF" destination="rWf-k1-Liw" id="Xl3-j9-6zo"/>
+                        <outlet property="proPicEditBtn" destination="Jdo-Fq-861" id="6Nd-Pb-vnr"/>
                         <outlet property="profileBGView" destination="0xn-k3-4ML" id="nce-2L-rfM"/>
                         <outlet property="profileImg" destination="TXb-wC-5Ja" id="fqV-rn-RYe"/>
                         <outlet property="updateProfileLbl" destination="elH-s9-KPN" id="45H-nH-Qyo"/>
