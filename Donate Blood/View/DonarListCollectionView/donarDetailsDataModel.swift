@@ -16,9 +16,9 @@ class donarProfile{
     var location: String
     var profile_img: String? = nil
     var mobile: String
-    var available: Bool?
+    var available: Bool
     
-    init(name: String, blood_group: String, age: String?, location: String, profile_img: String?, mobile: String, available: Bool?) {
+    init(name: String, blood_group: String, age: String?, location: String, profile_img: String?, mobile: String, available: Bool) {
 //    init(name: String, blood_group: String, location: String) {
         self.name = name
         self.blood_group = blood_group

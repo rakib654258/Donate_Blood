@@ -53,13 +53,13 @@ class DonarListVC: UIViewController {
                     let blood = data["blood-group"]
                     let location = data["location"]
                     print(location as Any)
-                    let profile = data["profile_img"] ?? "nil"
+                    let profile = data["imageUrl"] ?? "nil"
                     let mobile = data["mobile"] ?? "nil"
                     let age = data["age"] ?? "nil"
                     let available = data["available"] ?? true
-                    let User = donarProfile(name: name as! String, blood_group: blood as! String, age: age as! String, location: location as! String, profile_img: (profile as! String), mobile: mobile as! String, available: (available != nil))
+                    let User = donarProfile(name: name as! String, blood_group: blood as! String, age: age as! String, location: location as! String, profile_img: (profile as! String), mobile: mobile as! String, available: available as! Bool)
 //                    let User = donarProfile(name: name as! String, blood_group: blood as! String, location: location as! String)
-                    
+                    //print("donar img", data["imageUrl"])
                     self.profile.append(User)
                 }
                 //print("All users profile data: ",self.profile[0].available)
@@ -75,7 +75,7 @@ class DonarListVC: UIViewController {
           let layout = VegaScrollFlowLayout()
           collectionView.collectionViewLayout = layout
           layout.minimumLineSpacing = 8
-          layout.itemSize = CGSize(width: collectionView.frame.width, height: 80)
+          layout.itemSize = CGSize(width: collectionView.frame.width, height: 100)
           layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
       }
 
@@ -91,6 +91,13 @@ extension DonarListVC: UICollectionViewDataSource{
 //        cell.DonarProfileImg
         //cell.donarName.text = "Rakib"
         cell.donarName.text = profile[indexPath.row].name
+        if let profileImgUrl = profile[indexPath.row].profile_img{
+            cell.DonarProfileImg.loadImageUsingCacheWithUrlString(urlString: profileImgUrl )
+        }
+        let activeStatus = profile[indexPath.row].available
+        if activeStatus == false{
+            cell.activeStatus.backgroundColor = .red
+        }
         
         return cell
     }

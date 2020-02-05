@@ -12,6 +12,7 @@ import Firebase
 class DashBoardVC: UIViewController{
 
     @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var imageViewBG: CustomView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     var iteamArray = ["DONARS LIST","TOTAL DONAR","FAQ","ABOUT US","REQUEST BLOOD"]
@@ -23,6 +24,7 @@ class DashBoardVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.title = "Dashboard"
+        
         // register nib
         collectionView.register(UINib(nibName: "IteamCell", bundle: nil), forCellWithReuseIdentifier: "IteamCell")
         let signoutBtn = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(tapSignOut))
@@ -35,7 +37,12 @@ class DashBoardVC: UIViewController{
         //profileImg.layer.cornerRadius = profileImg.layer.frame.height / 2
     }
     override func viewWillAppear(_ animated: Bool) {
+        
         fetchUserData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        profileImg.layer.cornerRadius = profileImg.frame.height / 2
+        imageViewBG.layer.cornerRadius = imageViewBG.frame.height / 2
     }
     func fetchUserData(){
         guard let userID = Auth.auth().currentUser?.uid else{return}
@@ -51,8 +58,9 @@ class DashBoardVC: UIViewController{
                 if let data = snapshot?.data(){
                     print((data["name"] as! String))
                     self.userName = data["name"] as! String
-                    //self.profileImg.image = UIImage(named: data["imageUrl"] as! String)
-                    //print(data["imageUrl"] as! String)
+                    if let profileImgUrl = data["imageUrl"]{
+                    self.profileImg.loadImageUsingCacheWithUrlString(urlString: profileImgUrl as! String)
+                    }
                     self.profileName.text = self.userName//(data["name"] as! String)
                     //print(data["blood-group"])
                 }

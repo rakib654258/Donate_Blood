@@ -31,10 +31,12 @@ class ProfileVC: UIViewController {
     let db = Firestore.firestore()
     
     var profileImage: UIImage? = nil
+    //var profileImage = UIImage(named: "profile")
     var profileImageUrl = ""
-    
     var proName = ""
     var currentUserID = ""
+    var isImageSelected = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // navigationbar back button
@@ -100,16 +102,7 @@ class ProfileVC: UIViewController {
                         self.availableSwitch.isOn = data["available"] as? Bool ?? true
                         // MARK: download image from firebase
                         if let profileImgUrl = data["imageUrl"]{
-                            let url = URL(string: profileImgUrl as! String)
-                            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                                if error != nil{
-                                    print(error?.localizedDescription as Any)
-                                    return
-                                }
-                                DispatchQueue.main.async {
-                                    self.profileImg.image = UIImage(data: data!)
-                                }
-                            }).resume()
+                            self.profileImg.loadImageUsingCacheWithUrlString(urlString: profileImgUrl as! String)
                         }
                     }
                 }
@@ -156,9 +149,9 @@ class ProfileVC: UIViewController {
             let location = locationTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let mobile = mobileTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let age = ageTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-            var available = true
-            if availableSwitch.isOn == false{
-                available = false
+            var available = false
+            if availableSwitch.isOn == true{
+                available = true
             }
             hud.showHUD()
             //update user data
@@ -166,35 +159,35 @@ class ProfileVC: UIViewController {
             
             // MARK: image set to firebase storage
             // load the profile image
-            guard let imageSelected = self.profileImage else{
-                print("image nil")
-                return
-            }
-            guard let imageData = imageSelected.jpegData(compressionQuality: 0.5) else {
-                return
-            }
+        
             let storageRef = Storage.storage().reference(forURL: "gs://blooddonate-4fa96.appspot.com")
             let storageProfileRef = storageRef.child("profile").child(currentUserID)
             
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpg"
             
-            storageProfileRef.putData(imageData, metadata: metaData) { (storageMetaData, error) in
-                if error != nil{
-                    print(error?.localizedDescription as Any)
+            if isImageSelected == true{
+                let imageSelected = self.profileImage
+                guard let imageData = imageSelected!.jpegData(compressionQuality: 0.5) else {
                     return
-                }else{
-                    print("Successfully uploaded image")
                 }
-                storageProfileRef.downloadURL { (url, error) in
-                    if let metaImageUrl = url?.absoluteString{
-                        print("url:",metaImageUrl)
-                        self.profileImageUrl = metaImageUrl
-                        userRef.updateData([
-                            "imageUrl": self.profileImageUrl,
-                        ])}}
+                
+                storageProfileRef.putData(imageData, metadata: metaData) { (storageMetaData, error) in
+                    if error != nil{
+                        print(error?.localizedDescription as Any)
+                        return
+                    }else{
+                        print("Successfully uploaded image")
+                    }
+                    storageProfileRef.downloadURL { (url, error) in
+                        if let metaImageUrl = url?.absoluteString{
+                            print("url:",metaImageUrl)
+                            self.profileImageUrl = metaImageUrl
+                            userRef.updateData([
+                                "imageUrl": self.profileImageUrl,
+                            ])}}
+                }
             }
-        
             // MARK: set user updated data
             userRef.updateData([
                 "name": name!,
@@ -222,8 +215,10 @@ class ProfileVC: UIViewController {
     
     
     @IBAction func cancelAction(_ sender: UIButton) {
-        let profile = self.storyboard?.instantiateViewController(identifier: "DashBoardVC")
-        self.navigationController?.pushViewController(profile!, animated: true)
+//        let profile = self.storyboard?.instantiateViewController(identifier: "DashBoardVC")
+//        self.navigationController?.pushViewController(profile!, animated: true)
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func proPicEditAction(_ sender: UIButton) {
@@ -261,9 +256,17 @@ extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDele
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{return}
-        profileImage = pickedImage
-        profileImg.image = pickedImage
+//        guard let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{return}
+        if let cropedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            profileImage = cropedImage
+            profileImg.image = cropedImage
+            isImageSelected = true
+        }
+            
+//        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+//            profileImage = originalImage
+//            profileImg.image = originalImage
+//        }
         picker.dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
