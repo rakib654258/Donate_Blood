@@ -181,7 +181,7 @@ class ProfileVC: UIViewController {
                     }
                     storageProfileRef.downloadURL { (url, error) in
                         if let metaImageUrl = url?.absoluteString{
-                            print("url:",metaImageUrl)
+                            //print("url:",metaImageUrl)
                             self.profileImageUrl = metaImageUrl
                             userRef.updateData([
                                 "imageUrl": self.profileImageUrl,

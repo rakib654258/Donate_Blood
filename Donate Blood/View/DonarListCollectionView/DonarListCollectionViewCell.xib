@@ -35,7 +35,10 @@
                                     <constraint firstAttribute="width" secondItem="OG8-oR-wbZ" secondAttribute="height" multiplier="1:1" id="KE2-K1-j8M"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" image="call"/>
+                                <state key="normal" image="Call-1"/>
+                                <connections>
+                                    <action selector="callAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="U0q-gR-uoR"/>
+                                </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4v-W9-5ft" customClass="CustomView" customModule="Donate_Blood" customModuleProvider="target">
                                 <rect key="frame" x="16" y="14" width="64.5" height="64"/>
@@ -145,7 +148,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="call" width="40" height="40"/>
+        <image name="Call-1" width="180.5" height="180.5"/>
         <image name="profile" width="60" height="60"/>
     </resources>
 </document>

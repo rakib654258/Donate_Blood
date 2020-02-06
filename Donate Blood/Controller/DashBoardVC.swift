@@ -71,8 +71,9 @@ class DashBoardVC: UIViewController{
     
     
     @IBAction func ProfileBtnAction(_ sender: UIButton) {
-        let profile = self.storyboard?.instantiateViewController(identifier: "ProfileVC")
-        self.navigationController?.pushViewController(profile!, animated: true)
+        let ProfileVC = self.storyboard?.instantiateViewController(identifier: "ProfileVC") as! ProfileVC
+        //ProfileVC.nameTF = userName
+        self.navigationController?.pushViewController(ProfileVC, animated: true)
         //print(userName)
         
 //        self.view.window?.rootViewController = profile

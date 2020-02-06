@@ -21,12 +21,14 @@ class DonarListVC: UIViewController {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "DonarListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DonarListCollectionViewCell")
         // Do any additional setup after loading the view.
+        hud.showHUD()
         VegaScrolllayout()
         getData()
+        
     }
     // get all user from firestore
     override func viewWillAppear(_ animated: Bool) {
-        hud.showHUD()
+        //hud.showHUD()
     }
     func getData(){
         let db = Firestore.firestore()
@@ -91,6 +93,7 @@ extension DonarListVC: UICollectionViewDataSource{
 //        cell.DonarProfileImg
         //cell.donarName.text = "Rakib"
         cell.donarName.text = profile[indexPath.row].name
+        cell.number = profile[indexPath.row].mobile
         if let profileImgUrl = profile[indexPath.row].profile_img{
             cell.DonarProfileImg.loadImageUsingCacheWithUrlString(urlString: profileImgUrl )
         }
@@ -102,5 +105,20 @@ extension DonarListVC: UICollectionViewDataSource{
         return cell
     }
     
-    
+}
+extension DonarListVC: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let donarProfileVC = self.storyboard?.instantiateViewController(identifier: "DonarProfileVC") as! DonarProfileVC
+        
+        donarProfileVC.donarProfile = [profile[indexPath.row]]
+        
+        self.navigationController?.pushViewController(donarProfileVC, animated: true)
+        
+        // didselect show activity
+//        let cell = collectionView.cellForItem(at: indexPath)
+//        cell?.layer.borderWidth = 3.0
+//        cell?.layer.borderColor = UIColor.green.cgColor
+//        //cell?.layer.cornerRadius = (cell?.layer.frame.height)! / 2
+        
+    }
 }

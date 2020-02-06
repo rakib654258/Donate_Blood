@@ -835,11 +835,11 @@
                                 <rect key="frame" x="32" y="830" width="350" height="0.0"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elH-s9-KPN">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="50"/>
                                         <color key="backgroundColor" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="aOB-Dy-YIW"/>
-                                            <constraint firstAttribute="width" constant="180" id="bAl-da-KVH"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="bAl-da-KVH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
                                         <state key="normal" title="Update Profile">
@@ -914,6 +914,216 @@
             </objects>
             <point key="canvasLocation" x="3557.971014492754" y="114.50892857142857"/>
         </scene>
+        <!--Donar ProfileVC-->
+        <scene sceneID="QNO-pV-cYK">
+            <objects>
+                <viewController storyboardIdentifier="DonarProfileVC" id="Olm-az-ECa" customClass="DonarProfileVC" customModule="Donate_Blood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qkp-HH-GfZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDR-As-zXM" customClass="CustomView" customModule="Donate_Blood" customModuleProvider="target">
+                                <rect key="frame" x="127" y="76" width="160" height="160"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="b5W-FR-IvM">
+                                        <rect key="frame" x="8" y="8" width="144" height="144"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="b5W-FR-IvM" firstAttribute="leading" secondItem="F7Q-l0-QoG" secondAttribute="leading" constant="8" id="Doi-b0-K4Z"/>
+                                    <constraint firstItem="F7Q-l0-QoG" firstAttribute="trailing" secondItem="b5W-FR-IvM" secondAttribute="trailing" constant="8" id="P64-LZ-4t7"/>
+                                    <constraint firstItem="F7Q-l0-QoG" firstAttribute="bottom" secondItem="b5W-FR-IvM" secondAttribute="bottom" constant="8" id="TgN-RP-ECO"/>
+                                    <constraint firstAttribute="height" constant="160" id="eRh-oh-A8E"/>
+                                    <constraint firstItem="b5W-FR-IvM" firstAttribute="top" secondItem="F7Q-l0-QoG" secondAttribute="top" constant="8" id="p6G-IT-lmw"/>
+                                    <constraint firstAttribute="width" secondItem="pDR-As-zXM" secondAttribute="height" multiplier="1:1" id="qlQ-aT-Gg5"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="F7Q-l0-QoG"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xRj-qW-2or">
+                                <rect key="frame" x="36" y="272" width="342" height="234"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-Jm-TMR">
+                                        <rect key="frame" x="0.0" y="0.0" width="138.66666666666666" height="234"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnM-KL-9eK">
+                                                <rect key="frame" x="0.0" y="0.0" width="138.66666666666666" height="25.666666666666668"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="gkS-SM-xZq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjK-F9-5Ws">
+                                                <rect key="frame" x="0.0" y="41.666666666666686" width="138.66666666666666" height="25.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="bKv-aU-y7c"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBy-IH-laN">
+                                                <rect key="frame" x="0.0" y="83.333333333333314" width="138.66666666666666" height="25.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="fo5-mN-Dj7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QH2-kt-pKU">
+                                                <rect key="frame" x="0.0" y="125.00000000000001" width="138.66666666666666" height="25.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="jGS-Q5-tnW"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hud-Gv-fia">
+                                                <rect key="frame" x="0.0" y="166.66666666666669" width="138.66666666666666" height="25.666666666666657"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="138.66999999999999" id="iUX-jR-xE3"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="r1i-BY-5XK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXO-wE-uTf">
+                                                <rect key="frame" x="0.0" y="208.33333333333331" width="138.66666666666666" height="25.666666666666657"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="aOQ-cT-Sym"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="rXO-wE-uTf" firstAttribute="width" secondItem="Hud-Gv-fia" secondAttribute="width" id="BlF-zz-aHg"/>
+                                            <constraint firstItem="cBy-IH-laN" firstAttribute="width" secondItem="Hud-Gv-fia" secondAttribute="width" id="IYe-kN-uzs"/>
+                                            <constraint firstItem="gnM-KL-9eK" firstAttribute="width" secondItem="Hud-Gv-fia" secondAttribute="width" id="ZaX-PY-xlg"/>
+                                            <constraint firstItem="TjK-F9-5Ws" firstAttribute="width" secondItem="Hud-Gv-fia" secondAttribute="width" id="oUf-dg-cce"/>
+                                            <constraint firstItem="QH2-kt-pKU" firstAttribute="width" secondItem="Hud-Gv-fia" secondAttribute="width" id="pKW-uF-fLz"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-YK-Zwp">
+                                        <rect key="frame" x="138.66666666666663" y="0.0" width="203.33333333333337" height="234"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bop-Fw-KCj">
+                                                <rect key="frame" x="0.0" y="0.0" width="203.33333333333334" height="25.666666666666668"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="gUv-mE-k9N"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7q-4U-w1k">
+                                                <rect key="frame" x="0.0" y="41.666666666666686" width="203.33333333333334" height="25.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="EH8-hI-yws"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24Z-pk-cBp">
+                                                <rect key="frame" x="0.0" y="83.333333333333314" width="203.33333333333334" height="25.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="zJK-OM-k7K"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLt-Mg-Pce">
+                                                <rect key="frame" x="0.0" y="125.00000000000001" width="203.33333333333334" height="25.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="2n8-Nb-70w"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7N1-bJ-djV">
+                                                <rect key="frame" x="0.0" y="166.66666666666669" width="203.33333333333334" height="25.666666666666657"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="qTI-F2-WkN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LP8-Bc-V5q">
+                                                <rect key="frame" x="0.0" y="208.33333333333331" width="203.33333333333334" height="25.666666666666657"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="Q4R-RD-fIg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFt-Qe-Cxa">
+                                <rect key="frame" x="167" y="746" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rFt-Qe-Cxa" secondAttribute="height" multiplier="1:1" id="3y2-1n-aYd"/>
+                                    <constraint firstAttribute="height" constant="80" id="6YH-2F-9Xn"/>
+                                </constraints>
+                                <state key="normal" image="Call-1">
+                                    <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="callAction:" destination="Olm-az-ECa" eventType="touchUpInside" id="xei-c6-42E"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vUC-3P-r5X" firstAttribute="trailing" secondItem="xRj-qW-2or" secondAttribute="trailing" constant="36" id="5rH-H7-Mlh"/>
+                            <constraint firstItem="vUC-3P-r5X" firstAttribute="bottom" secondItem="rFt-Qe-Cxa" secondAttribute="bottom" constant="36" id="JnU-T6-q4O"/>
+                            <constraint firstItem="xRj-qW-2or" firstAttribute="leading" secondItem="vUC-3P-r5X" secondAttribute="leading" constant="36" id="LnU-Iq-JGB"/>
+                            <constraint firstItem="rFt-Qe-Cxa" firstAttribute="centerX" secondItem="qkp-HH-GfZ" secondAttribute="centerX" id="Xso-nw-PAf"/>
+                            <constraint firstItem="xRj-qW-2or" firstAttribute="top" secondItem="pDR-As-zXM" secondAttribute="bottom" constant="36" id="bYs-Z9-T0s"/>
+                            <constraint firstItem="pDR-As-zXM" firstAttribute="centerX" secondItem="qkp-HH-GfZ" secondAttribute="centerX" id="il9-iu-k0B"/>
+                            <constraint firstItem="pDR-As-zXM" firstAttribute="top" secondItem="qkp-HH-GfZ" secondAttribute="topMargin" constant="32" id="u0f-W1-pXC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vUC-3P-r5X"/>
+                    </view>
+                    <connections>
+                        <outlet property="ageLbl" destination="d7q-4U-w1k" id="zzL-1G-ULU"/>
+                        <outlet property="availableLbl" destination="LP8-Bc-V5q" id="8hF-nX-TIi"/>
+                        <outlet property="bloodLbl" destination="7N1-bJ-djV" id="eST-J4-q0h"/>
+                        <outlet property="callBtn" destination="rFt-Qe-Cxa" id="jhT-Vy-IXn"/>
+                        <outlet property="imgBG" destination="pDR-As-zXM" id="aRv-GR-pOT"/>
+                        <outlet property="locationLbl" destination="24Z-pk-cBp" id="Wbb-IV-7As"/>
+                        <outlet property="mobileLbl" destination="rLt-Mg-Pce" id="KTz-ME-zHN"/>
+                        <outlet property="nameLbl" destination="Bop-Fw-KCj" id="TRO-UO-WWA"/>
+                        <outlet property="profileImg" destination="b5W-FR-IvM" id="EhP-OV-a0p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccN-JT-rby" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4421.739130434783" y="114.50892857142857"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="kfo-3h-OOW">
             <objects>
@@ -941,6 +1151,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Call-1" width="180.5" height="180.5"/>
         <image name="profile" width="60" height="60"/>
     </resources>
 </document>

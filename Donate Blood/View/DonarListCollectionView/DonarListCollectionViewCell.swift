@@ -9,7 +9,9 @@
 import UIKit
 
 class DonarListCollectionViewCell: UICollectionViewCell {
-
+    
+    var number  = ""
+    
     @IBOutlet weak var profileImgBG: CustomView!
     @IBOutlet weak var activeStatus: UIView!
     @IBOutlet weak var donarName: UILabel!
@@ -23,5 +25,10 @@ class DonarListCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-
+    @IBAction func callAction(_ sender: UIButton) {
+        guard let number : NSURL = URL(string: "TEL://)" + "\(number)") as NSURL?
+            else{return}
+        UIApplication.shared.open(number as URL, options: [:], completionHandler: nil)
+    }
+    
 }
