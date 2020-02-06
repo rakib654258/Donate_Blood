@@ -557,7 +557,7 @@
                                     <constraint firstAttribute="height" constant="55" id="rWd-mp-VfT"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitles" value="A+,A-,B+,B-,AB+,AB-,O+,O-"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitles" value="A+,A-,B+,B-,O+,O-,AB+,AB-"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
@@ -574,6 +574,9 @@
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="dUn-7Y-Kyx" eventType="valueChanged" id="eZv-rb-qLn"/>
+                                </connections>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lvC-4K-D0Q">
                                 <rect key="frame" x="8" y="115" width="398" height="747"/>

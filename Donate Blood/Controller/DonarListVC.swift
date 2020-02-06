@@ -16,63 +16,115 @@ class DonarListVC: UIViewController {
     
     var profile: [donarProfile] = []
     //var profile: [String: Any] = [:]
-    
+//    var APositiveDonarInfo : [donarProfile] = []
+//    var ANegativeDonarInfo: [donarProfile] = []
+//    var BPositiveDonarInfo : [donarProfile] = []
+//    var BNegativeDonarInfo: [donarProfile] = []
+//    var OPositiveDonarInfo : [donarProfile] = []
+//    var ONegativeDonarInfo: [donarProfile] = []
+//    var ABPositiveDonarInfo : [donarProfile] = []
+//    var ABNegativeDonarInfo: [donarProfile] = []
+    var selectedSegIndex = 0
+    var queryString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "DonarListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DonarListCollectionViewCell")
         // Do any additional setup after loading the view.
         hud.showHUD()
         VegaScrolllayout()
-        getData()
+        getData(isEqual: "A+")
         
     }
     // get all user from firestore
     override func viewWillAppear(_ animated: Bool) {
         //hud.showHUD()
     }
-    func getData(){
-        let db = Firestore.firestore()
-        
-//        db.collection("users").whereField("blood-group", isEqualTo: "A+").addSnapshotListener { (<#QuerySnapshot?#>, <#Error?#>) in
-//            <#code#>
-//        }
-        db.collection("users").getDocuments { (querySnapshot, error) in
-            //print(querySnapshot?.documents)
-            //hud.showHUD()
-            if let error = error{
-                print("error getting documents: \(error)")
-                hud.hideHUD()
-            }
-                
-            else{
-                
-                for document in querySnapshot!.documents{
-                    //self.profile = document.data
-                    print("\(document.documentID) => \(document.data())")
-                    //self.profile.append(document)
-                    let data = document.data()
-                    let name = data["name"]
-                    let blood = data["blood-group"]
-                    let location = data["location"]
-                    print(location as Any)
-                    let profile = data["imageUrl"] ?? "nil"
-                    let mobile = data["mobile"] ?? "nil"
-                    let age = data["age"] ?? "nil"
-                    let available = data["available"] ?? true
-                    let User = donarProfile(name: name as! String, blood_group: blood as! String, age: age as! String, location: location as! String, profile_img: (profile as! String), mobile: mobile as! String, available: available as! Bool)
-//                    let User = donarProfile(name: name as! String, blood_group: blood as! String, location: location as! String)
-                    //print("donar img", data["imageUrl"])
-                    self.profile.append(User)
-                }
-                //print("All users profile data: ",self.profile[0].available)
-                hud.hideHUD()
-                //print(self.profile)
-                self.collectionView.reloadData()
-            }
+    
+    // MARK: Segmented controller
+    
+    @IBAction func segmentedControlAction(_ sender: CustomSegmentedControl) {
+        selectedSegIndex = sender.selectedSegmentIndex
+//        switch sender.selectedSegmentIndex {
+        switch selectedSegIndex {
+        case 0:
+            //queryString = "A+"
+            profile = []
+            getData(isEqual: "A+")
+        case 1:
+            profile = []
+            //queryString = "A-"
+            getData(isEqual: "A-")
+        case 2:
+            profile = []
+            //queryString = "B+"
+            getData(isEqual: "B+")
+        case 3:
+            profile = []
+            //queryString = "B-"
+            getData(isEqual: "B-")
+        case 4:
+            profile = []
+            //queryString = "O+"
+            getData(isEqual: "O+")
+        case 5:
+            profile = []
+            //queryString = "O-"
+            getData(isEqual: "O-")
+        case 6:
+            profile = []
+            //queryString = "AB+"
+            getData(isEqual: "AB+")
+        case 7:
+            profile = []
+            //queryString = "AB-"
+            getData(isEqual: "AB-")
+        default:
+            return
         }
     }
+    // get data from firestore
+    func getData(isEqual: String){
+            let db = Firestore.firestore()
+            
+            db.collection("users").whereField("blood-group", isEqualTo: isEqual).getDocuments() { (querySnapshot, error) in
+                hud.showHUD()
+            //}
+            //db.collection("users").getDocuments { (querySnapshot, error) in
+                //print(querySnapshot?.documents)
+                //hud.showHUD()
+                if let error = error{
+                    print("error getting documents: \(error)")
+                    hud.hideHUD()
+                }
+                    
+                else{
+                    
+                    for document in querySnapshot!.documents{
+                        //self.profile = document.data
+                        print("\(document.documentID) => \(document.data())")
+                        //self.profile.append(document)
+                        let data = document.data()
+                        let name = data["name"]
+                        let blood = data["blood-group"]
+                        let location = data["location"]
+                        //print(location as Any)
+                        var profile = data["imageUrl"] ?? "nil"
+                        let mobile = data["mobile"] ?? "nil"
+                        let age = data["age"] ?? "nil"
+                        let available = data["available"] ?? true
+                        let User = donarProfile(name: name as! String, blood_group: blood as! String, age: age as! String, location: location as! String, profile_img: (profile as! String), mobile: mobile as! String, available: available as! Bool)
+
+                        self.profile.append(User)
+                    }
+                    //print("All users profile data: ",self.profile[0].available)
+                    hud.hideHUD()
+                    //print(self.profile)
+                    self.collectionView.reloadData()
+                }
+            }
+        }
     
-    //collectionview layout
+    //MARK: collectionview layout
     func VegaScrolllayout(){
           let layout = VegaScrollFlowLayout()
           collectionView.collectionViewLayout = layout
@@ -90,8 +142,6 @@ extension DonarListVC: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DonarListCollectionViewCell", for: indexPath) as! DonarListCollectionViewCell
-//        cell.DonarProfileImg
-        //cell.donarName.text = "Rakib"
         cell.donarName.text = profile[indexPath.row].name
         cell.number = profile[indexPath.row].mobile
         if let profileImgUrl = profile[indexPath.row].profile_img{
@@ -99,7 +149,10 @@ extension DonarListVC: UICollectionViewDataSource{
         }
         let activeStatus = profile[indexPath.row].available
         if activeStatus == false{
-            cell.activeStatus.backgroundColor = .red
+            cell.profileImgBG.borderColor = .red
+        }
+        if activeStatus == true{
+            cell.profileImgBG.borderColor = .green
         }
         
         return cell
