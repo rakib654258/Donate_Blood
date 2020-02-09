@@ -207,7 +207,15 @@ class ProfileVC: UIViewController {
                     self.viewDidLoad()
                     self.editBtnLbl.isHidden = false
                     
-                    print("Document Successfully updated")
+                    // show tost message
+                    // way one (only use this)
+//                    let messageVC = UIAlertController(title: "Profile Edited", message: "Document Successfully updated" , preferredStyle: .actionSheet)
+//                    self.present(messageVC, animated: true) {
+//                                    Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (_) in
+//                                        messageVC.dismiss(animated: true, completion: nil)})}
+                    // way two (for this use showToast.swift file)
+                    self.showToast("Document Successfully updated")
+                    //print("Document Successfully updated")
                 }
             }
         }

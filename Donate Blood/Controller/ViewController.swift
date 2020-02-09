@@ -158,11 +158,13 @@ class ViewController: UIViewController {
                         }
                     }
                     //hud.dismiss(animated: true)
+                    
                     //dismiss the Loading HUD
                     hud.hideHUD()
+                    
                     //transition to the home screen
-                    //self.delegate.user_uid(uid: (result?.user.uid)!)
                     self.TransitionToDashboard()
+                    //self.showToast("signup successfully")
                 }
             }
         }
