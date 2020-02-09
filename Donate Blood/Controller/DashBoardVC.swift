@@ -15,8 +15,9 @@ class DashBoardVC: UIViewController{
     @IBOutlet weak var imageViewBG: CustomView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    var iteamArray = ["DONARS LIST","TOTAL DONAR","FAQ","ABOUT US","REQUEST BLOOD"]
+    var iteamArray = ["DONARS LIST","DONARS","FAQ","ABOUT US","REQUEST BLOOD"]
     var userName = ""
+    
     //var iteamArray = ["ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS"]
     var estimateWidth = 160.0
     var cellMarginSize = 8.0
@@ -37,10 +38,10 @@ class DashBoardVC: UIViewController{
         //profileImg.layer.cornerRadius = profileImg.layer.frame.height / 2
     }
     override func viewWillAppear(_ animated: Bool) {
-        
         fetchUserData()
     }
     override func viewDidAppear(_ animated: Bool) {
+        
         profileImg.layer.cornerRadius = profileImg.frame.height / 2
         imageViewBG.layer.cornerRadius = imageViewBG.frame.height / 2
     }
@@ -49,8 +50,6 @@ class DashBoardVC: UIViewController{
         print("Current user id is: \(userID)")
         // get user data
         let db = Firestore.firestore()
-        //let docRef = db.collection("users").document("")
-//        db.collection("users").document("\(userID)").getDocument { (snapshot, error) in
         db.collection("users").document(userID).getDocument { (snapshot, error) in
             if let error = error{
                 print( "error getting user", error.localizedDescription)
@@ -133,8 +132,8 @@ extension DashBoardVC: UICollectionViewDataSource{
             self.navigationController?.pushViewController(donarList, animated: true)
         }
         if indexPath.row == 1{
-            let donarList = self.storyboard?.instantiateViewController(identifier: "DonarListVC") as! DonarListVC
-            donarList.title = "Donar List"
+            let donarList = self.storyboard?.instantiateViewController(identifier: "TotalDonarVC") as! TotalDonarVC
+            donarList.title = "Donars"
             self.navigationController?.pushViewController(donarList, animated: true)
         }
         if indexPath.row == 2{
