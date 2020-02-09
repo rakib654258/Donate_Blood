@@ -137,18 +137,18 @@ extension DashBoardVC: UICollectionViewDataSource{
             self.navigationController?.pushViewController(donarList, animated: true)
         }
         if indexPath.row == 2{
-            let donarList = self.storyboard?.instantiateViewController(identifier: "DonarListVC") as! DonarListVC
-            donarList.title = "Donar List"
+            let donarList = self.storyboard?.instantiateViewController(identifier: "FAQVC") as! FAQVC
+            donarList.title = "FAQ"
             self.navigationController?.pushViewController(donarList, animated: true)
         }
         if indexPath.row == 3{
-            let donarList = self.storyboard?.instantiateViewController(identifier: "DonarListVC") as! DonarListVC
-            donarList.title = "Donar List"
+            let donarList = self.storyboard?.instantiateViewController(identifier: "AboutVC") as! AboutVC
+            donarList.title = "About Us"
             self.navigationController?.pushViewController(donarList, animated: true)
         }
         if indexPath.row == 4{
-            let donarList = self.storyboard?.instantiateViewController(identifier: "DonarListVC") as! DonarListVC
-            donarList.title = "Donar List"
+            let donarList = self.storyboard?.instantiateViewController(identifier: "RequestForBloodVC") as! RequestForBloodVC
+            donarList.title = "Request Blood"
             self.navigationController?.pushViewController(donarList, animated: true)
         }
        }

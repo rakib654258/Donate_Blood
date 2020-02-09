@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		71934393B7250D46BFDCF6C0 /* Pods_Donate_Blood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3016AB01906204014767358D /* Pods_Donate_Blood.framework */; };
 		B21E23F323D6C4A300D19FEB /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E23F223D6C4A300D19FEB /* iOSDropDown.swift */; };
+		B2211F3823F013340001F96B /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2211F3723F013340001F96B /* AboutVC.swift */; };
+		B2211F3A23F014AD0001F96B /* FAQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2211F3923F014AD0001F96B /* FAQVC.swift */; };
+		B2211F3C23F0153B0001F96B /* RequestForBloodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2211F3B23F0153B0001F96B /* RequestForBloodVC.swift */; };
 		B22C7AAE23E684F5009A7562 /* DonarListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C7AAC23E684F5009A7562 /* DonarListCollectionViewCell.swift */; };
 		B22C7AAF23E684F5009A7562 /* DonarListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B22C7AAD23E684F5009A7562 /* DonarListCollectionViewCell.xib */; };
 		B22C7AB123E6A8AC009A7562 /* donarDetailsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C7AB023E6A8AC009A7562 /* donarDetailsDataModel.swift */; };
@@ -40,6 +43,9 @@
 		3F7A01A538AB98C087B556EF /* Pods-Donate Blood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donate Blood.release.xcconfig"; path = "Target Support Files/Pods-Donate Blood/Pods-Donate Blood.release.xcconfig"; sourceTree = "<group>"; };
 		421C0CC631A83B36EBBF0371 /* Pods-Donate Blood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donate Blood.debug.xcconfig"; path = "Target Support Files/Pods-Donate Blood/Pods-Donate Blood.debug.xcconfig"; sourceTree = "<group>"; };
 		B21E23F223D6C4A300D19FEB /* iOSDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSDropDown.swift; sourceTree = "<group>"; };
+		B2211F3723F013340001F96B /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		B2211F3923F014AD0001F96B /* FAQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQVC.swift; sourceTree = "<group>"; };
+		B2211F3B23F0153B0001F96B /* RequestForBloodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForBloodVC.swift; sourceTree = "<group>"; };
 		B22C7AAC23E684F5009A7562 /* DonarListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarListCollectionViewCell.swift; sourceTree = "<group>"; };
 		B22C7AAD23E684F5009A7562 /* DonarListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonarListCollectionViewCell.xib; sourceTree = "<group>"; };
 		B22C7AB023E6A8AC009A7562 /* donarDetailsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = donarDetailsDataModel.swift; path = "Donate Blood/View/DonarListCollectionView/donarDetailsDataModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -178,6 +184,9 @@
 				B22C7AB223E6ECA6009A7562 /* ProfileVC.swift */,
 				B26C4BAC23EBD2C80038C924 /* DonarProfileVC.swift */,
 				B240979B23EFDFC300937465 /* TotalDonarVC.swift */,
+				B2211F3723F013340001F96B /* AboutVC.swift */,
+				B2211F3923F014AD0001F96B /* FAQVC.swift */,
+				B2211F3B23F0153B0001F96B /* RequestForBloodVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -326,9 +335,12 @@
 				B22C7AB323E6ECA6009A7562 /* ProfileVC.swift in Sources */,
 				B2C6C4E223D97BC900FA77F7 /* IteamCell.swift in Sources */,
 				B240979C23EFDFC300937465 /* TotalDonarVC.swift in Sources */,
+				B2211F3A23F014AD0001F96B /* FAQVC.swift in Sources */,
 				B24CF41C23EA8BBA0014BF8C /* ImageCache.swift in Sources */,
 				B245498B23D588BD00776986 /* CustomTextField.swift in Sources */,
 				B2A531A423D5B46C00E6C9FB /* signup.swift in Sources */,
+				B2211F3C23F0153B0001F96B /* RequestForBloodVC.swift in Sources */,
+				B2211F3823F013340001F96B /* AboutVC.swift in Sources */,
 				B29B112723DD6CE500359E72 /* DonarListVC.swift in Sources */,
 				B26C4BAD23EBD2C80038C924 /* DonarProfileVC.swift in Sources */,
 				B2C6C4DE23D97B1600FA77F7 /* DashBoardVC.swift in Sources */,
