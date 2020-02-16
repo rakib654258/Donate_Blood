@@ -15,15 +15,7 @@ class DonarListVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var profile: [donarProfile] = []
-    //var profile: [String: Any] = [:]
-//    var APositiveDonarInfo : [donarProfile] = []
-//    var ANegativeDonarInfo: [donarProfile] = []
-//    var BPositiveDonarInfo : [donarProfile] = []
-//    var BNegativeDonarInfo: [donarProfile] = []
-//    var OPositiveDonarInfo : [donarProfile] = []
-//    var ONegativeDonarInfo: [donarProfile] = []
-//    var ABPositiveDonarInfo : [donarProfile] = []
-//    var ABNegativeDonarInfo: [donarProfile] = []
+    
     var selectedSegIndex = 0
     var queryString = ""
     override func viewDidLoad() {
@@ -128,7 +120,7 @@ class DonarListVC: UIViewController {
     func VegaScrolllayout(){
           let layout = VegaScrollFlowLayout()
           collectionView.collectionViewLayout = layout
-          layout.minimumLineSpacing = 8
+          layout.minimumLineSpacing = 12
           layout.itemSize = CGSize(width: collectionView.frame.width, height: 100)
           layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
       }
@@ -142,16 +134,19 @@ extension DonarListVC: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DonarListCollectionViewCell", for: indexPath) as! DonarListCollectionViewCell
-        cell.donarName.text = profile[indexPath.row].name
+        cell.donarName.text = "Name : \(profile[indexPath.row].name)"
+        cell.donarlocation.text = "Location : \(profile[indexPath.row].location)"
         cell.number = profile[indexPath.row].mobile
         if let profileImgUrl = profile[indexPath.row].profile_img{
             cell.DonarProfileImg.loadImageUsingCacheWithUrlString(urlString: profileImgUrl )
         }
         let activeStatus = profile[indexPath.row].available
         if activeStatus == false{
+            cell.activeStatus.backgroundColor = .red
             cell.profileImgBG.borderColor = .red
         }
         if activeStatus == true{
+            cell.activeStatus.backgroundColor = .green
             cell.profileImgBG.borderColor = .green
         }
         

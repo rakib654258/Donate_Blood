@@ -16,6 +16,7 @@ class DonarListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var activeStatus: UIView!
     @IBOutlet weak var donarName: UILabel!
 
+    @IBOutlet weak var donarlocation: UILabel!
     @IBOutlet weak var DonarProfileImg: UIImageView!
     @IBOutlet weak var callBtn: UIButton!
     override func awakeFromNib() {

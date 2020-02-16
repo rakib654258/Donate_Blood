@@ -17,17 +17,17 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8p-xz-QT3" customClass="CustomView" customModule="Donate_Blood" customModuleProvider="target">
-                        <rect key="frame" x="27" y="23" width="160" height="160"/>
+                        <rect key="frame" x="17" y="13" width="180" height="180"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blood120*1220" translatesAutoresizingMaskIntoConstraints="NO" id="q7r-Fg-pkF">
-                                <rect key="frame" x="32" y="16" width="96" height="96"/>
+                                <rect key="frame" x="36" y="16" width="108" height="108"/>
                                 <color key="tintColor" red="0.90103505709999998" green="0.2232619367" blue="0.1770957698" alpha="0.84551583900000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="q7r-Fg-pkF" secondAttribute="height" multiplier="1:1" id="rV6-Qg-MRE"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvB-Bu-7zC">
-                                <rect key="frame" x="-30" y="120" width="220" height="32"/>
+                                <rect key="frame" x="-20" y="132" width="220" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="p1Z-kS-NnJ"/>
                                 </constraints>
@@ -36,9 +36,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="160" id="D48-MZ-MhG"/>
+                            <constraint firstAttribute="height" constant="180" id="D48-MZ-MhG"/>
                             <constraint firstItem="q7r-Fg-pkF" firstAttribute="centerX" secondItem="y8p-xz-QT3" secondAttribute="centerX" id="LSZ-yT-fDi"/>
                             <constraint firstItem="q7r-Fg-pkF" firstAttribute="top" secondItem="y8p-xz-QT3" secondAttribute="top" constant="16" id="PsD-1e-gWp"/>
                             <constraint firstAttribute="bottom" secondItem="SvB-Bu-7zC" secondAttribute="bottom" constant="8" id="V2u-GQ-Kod"/>
@@ -58,16 +58,16 @@
                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                <size key="value" width="2" height="2"/>
+                                <size key="value" width="3" height="3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                <real key="value" value="2"/>
+                                <real key="value" value="3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                <real key="value" value="3"/>
+                                <real key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="3"/>
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>

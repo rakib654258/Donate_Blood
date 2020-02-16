@@ -15,11 +15,11 @@ class DashBoardVC: UIViewController{
     @IBOutlet weak var imageViewBG: CustomView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    var iteamArray = ["DONARS LIST","DONARS","FAQ","ABOUT US","REQUEST BLOOD"]
+    var iteamArray = ["DONARS LIST","DONARS","FAQS","ABOUT US","REQUEST BLOOD"]
     var userName = ""
     
     //var iteamArray = ["ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS"]
-    var estimateWidth = 160.0
+    var estimateWidth = 180.0
     var cellMarginSize = 8.0
     
     override func viewDidLoad() {
