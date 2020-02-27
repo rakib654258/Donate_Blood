@@ -20,7 +20,7 @@ class DashBoardVC: UIViewController{
     var Myprofile: donarProfile!
     var profileLoaded = false
     var estimateWidth = 160.0
-    var cellMarginSize = 8.0
+    var cellMarginSize = 16.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
