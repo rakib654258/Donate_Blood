@@ -97,6 +97,7 @@ class ViewController: UIViewController {
             print("Signup Button Tapped")
         }
     }
+    // MARK: set blood groups for dropdown
     func BloodGroupDropDown(){
         bloodTF.optionArray = ["O-","O+","A-","A+","B-","B+","AB-","AB+"]
         bloodTF.didSelect { (selectedGroup, index, id) in
@@ -149,7 +150,7 @@ class ViewController: UIViewController {
                 else{
                     //user create successfully, now store data
                     let db = Firestore.firestore()
-                    db.collection("users").document("\(result?.user.uid ?? "Profile")").setData(["name":name,"blood-group":blood,"location":location,"mobile": mobile, "uid":result?.user.uid]) { (error) in
+                    db.collection("users").document("\(result?.user.uid ?? "Profile")").setData(["name":name as Any,"blood-group":blood as Any,"location":location as Any,"mobile": mobile!, "uid":result?.user.uid as Any]) { (error) in
                         if error != nil{
                             //hud.dismiss(animated: true)
                             hud.hideHUD()
@@ -159,17 +160,16 @@ class ViewController: UIViewController {
                     }
                     //hud.dismiss(animated: true)
                     
-                    //dismiss the Loading HUD
-                    hud.hideHUD()
-                    
                     //transition to the home screen
                     self.TransitionToDashboard()
                     //self.showToast("signup successfully")
+                    //dismiss the Loading HUD
+                    hud.hideHUD()
                 }
             }
         }
     }
-    
+    // MARK: signin action
     @IBAction func signinAction(_ sender: UIButton) {
         //create the cleaned version of textfield
         let email = signinEmailLbl.text?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -185,9 +185,9 @@ class ViewController: UIViewController {
                 self.errorLbl.alpha = 1
             }else{
                 print("user signed in with id: \(result?.user.uid ?? "no id ")")
-                hud.hideHUD()
                 //self.delegate.user_uid(uid: (result?.user.uid)!)
                 self.TransitionToDashboard()
+                hud.hideHUD()
             }
         }
     }

@@ -77,7 +77,6 @@ class DonarListVC: UIViewController {
     // get data from firestore
     func getData(isEqual: String){
             let db = Firestore.firestore()
-            
             db.collection("users").whereField("blood-group", isEqualTo: isEqual).getDocuments() { (querySnapshot, error) in
                 hud.showHUD()
             //}
@@ -88,7 +87,6 @@ class DonarListVC: UIViewController {
                     print("error getting documents: \(error)")
                     hud.hideHUD()
                 }
-                    
                 else{
                     
                     for document in querySnapshot!.documents{
@@ -100,11 +98,13 @@ class DonarListVC: UIViewController {
                         let blood = data["blood-group"]
                         let location = data["location"]
                         //print(location as Any)
-                        var profile = data["imageUrl"] ?? "nil"
+                        let profile = data["imageUrl"] ?? "nil"
                         let mobile = data["mobile"] ?? "nil"
                         let age = data["age"] ?? "nil"
                         let available = data["available"] ?? true
-                        let User = donarProfile(name: name as! String, blood_group: blood as! String, age: age as! String, location: location as! String, profile_img: (profile as! String), mobile: mobile as! String, available: available as! Bool)
+                        let currentUserID = data["uid"]
+                        
+                        let User = donarProfile(name: name as! String, blood_group: blood as! String, age: age as? String, location: location as! String, profile_img: (profile as! String), mobile: mobile as! String, available: available as! Bool, currentUserId: currentUserID as! String)
 
                         self.profile.append(User)
                     }
@@ -124,6 +124,7 @@ class DonarListVC: UIViewController {
           layout.itemSize = CGSize(width: collectionView.frame.width, height: 100)
           layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
       }
+    
 
 }
 extension DonarListVC: UICollectionViewDataSource{
@@ -157,16 +158,16 @@ extension DonarListVC: UICollectionViewDataSource{
 extension DonarListVC: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let donarProfileVC = self.storyboard?.instantiateViewController(identifier: "DonarProfileVC") as! DonarProfileVC
-        
+
         donarProfileVC.donarProfile = [profile[indexPath.row]]
-        
+
         self.navigationController?.pushViewController(donarProfileVC, animated: true)
-        
+
         // didselect show activity
 //        let cell = collectionView.cellForItem(at: indexPath)
 //        cell?.layer.borderWidth = 3.0
 //        cell?.layer.borderColor = UIColor.green.cgColor
 //        //cell?.layer.cornerRadius = (cell?.layer.frame.height)! / 2
-        
+
     }
 }

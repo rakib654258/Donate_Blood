@@ -15,28 +15,32 @@ class DashBoardVC: UIViewController{
     @IBOutlet weak var imageViewBG: CustomView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    var iteamArray = ["DONARS LIST","DONARS","FAQS","ABOUT US","REQUEST BLOOD"]
-    var userName = ""
+    var iteamArray = ["DONARS LIST","REQUEST BLOOD","DONARS","FAQS","ABOUT US","SETTING"]
     
-    //var iteamArray = ["ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS","ALL DONARS"]
-    var estimateWidth = 180.0
+    var Myprofile: donarProfile!
+    var profileLoaded = false
+    var estimateWidth = 160.0
     var cellMarginSize = 8.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.title = "Dashboard"
-        
-        // register nib
+        // MARK: register nib
         collectionView.register(UINib(nibName: "IteamCell", bundle: nil), forCellWithReuseIdentifier: "IteamCell")
-        let signoutBtn = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(tapSignOut))
-        self.navigationItem.rightBarButtonItem = signoutBtn
-        // add multiple button
-//        let iteam1 = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(tapSignOut))
-//        let iteam2 = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(tapSignOut))
-//        self.navigationItem.leftBarButtonItems = [iteam1,iteam2]
         setupGrid()
-        //profileImg.layer.cornerRadius = profileImg.layer.frame.height / 2
+        setupNavigationBarIteam()
     }
+    // MARK: navigationBarIteam setup
+    private func setupNavigationBarIteam(){
+        // let signoutBtn = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(tapSignOut))
+        let signOutImg = UIImage(named: "menu")
+        let signoutBtn = UIBarButtonItem(image: signOutImg, style: .done, target: self, action: #selector(tapSignOut))
+        signoutBtn.image = signOutImg
+        self.navigationItem.rightBarButtonItem = signoutBtn
+        
+        // add multiple button
+        // self.navigationItem.leftBarButtonItems = [iteam1,iteam2]
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         fetchUserData()
     }
@@ -45,6 +49,7 @@ class DashBoardVC: UIViewController{
         profileImg.layer.cornerRadius = profileImg.frame.height / 2
         imageViewBG.layer.cornerRadius = imageViewBG.frame.height / 2
     }
+    // MARK: get current user data from firebase.
     func fetchUserData(){
         guard let userID = Auth.auth().currentUser?.uid else{return}
         print("Current user id is: \(userID)")
@@ -55,13 +60,24 @@ class DashBoardVC: UIViewController{
                 print( "error getting user", error.localizedDescription)
             }else{
                 if let data = snapshot?.data(){
-                    print((data["name"] as! String))
-                    self.userName = data["name"] as! String
+                    //let data = document.data()
+                    let name = data["name"]
+                    let blood = data["blood-group"]
+                    let location = data["location"]
+                    //print(location as Any)
+                    let profile = data["imageUrl"] ?? "nil"
+                    let mobile = data["mobile"] ?? "nil"
+                    let age = data["age"] ?? "nil"
+                    let available = data["available"] ?? true
+                    let currentUserID = data["uid"]
+                    let User = donarProfile(name: name as! String, blood_group: blood as! String, age: age as? String, location: location as! String, profile_img: (profile as! String), mobile: mobile as! String, available: available as! Bool, currentUserId: currentUserID as! String)
+                    self.Myprofile = User
+                    self.profileLoaded = true
+                    self.profileName.text = name as? String
                     if let profileImgUrl = data["imageUrl"]{
-                    self.profileImg.loadImageUsingCacheWithUrlString(urlString: profileImgUrl as! String)
+                        self.profileImg.loadImageUsingCacheWithUrlString(urlString: profileImgUrl as! String)
                     }
-                    self.profileName.text = self.userName//(data["name"] as! String)
-                    //print(data["blood-group"])
+                    
                 }
             }
             
@@ -70,21 +86,20 @@ class DashBoardVC: UIViewController{
     
     
     @IBAction func ProfileBtnAction(_ sender: UIButton) {
-        let ProfileVC = self.storyboard?.instantiateViewController(identifier: "ProfileVC") as! ProfileVC
-        //ProfileVC.nameTF = userName
-        self.navigationController?.pushViewController(ProfileVC, animated: true)
-        //print(userName)
+        if profileLoaded == true{
+            let ProfileVC = self.storyboard?.instantiateViewController(identifier: "ProfileVC") as! ProfileVC
+            ProfileVC.profile = Myprofile
+            self.navigationController?.pushViewController(ProfileVC, animated: true)
+        }
+        else{showToast("Wait sometimes! or check your net connections!")}
         
-//        self.view.window?.rootViewController = profile
-//        self.view.window?.makeKeyAndVisible()
     }
     
     
     // MARK: signout user
     @objc func tapSignOut(){
         print("signout btn taped")
-                    let alert = UIAlertController(title: "Sign out?", message: "You can always access your content by signing back in", preferredStyle: .actionSheet)
-//        let alert = UIAlertController(title: "Sign out?", message: "You can always access your content by signing back in", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Sign out?", message: "You can always access your content by signing back in", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { _ in
             //Cancel Action
         }))
@@ -97,22 +112,22 @@ class DashBoardVC: UIViewController{
                 self.view.window?.makeKeyAndVisible()
                 
             } catch let signOutError as NSError {
-                print ("Error signing out: %@", signOutError)
-                
+                //print ("Error signing out: %@", signOutError)
+                self.showToast("Error signing out: \(signOutError)")
             }
         }))
         self.present(alert, animated: true, completion: nil)
         
     }
     
-    // collection view grid
+    // MARK: collection view grid
     func setupGrid(){
           let flow = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
           flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)
           flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
       }
 }
-
+// MARK: collection view datasource
 extension DashBoardVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return iteamArray.count
@@ -132,30 +147,37 @@ extension DashBoardVC: UICollectionViewDataSource{
             self.navigationController?.pushViewController(donarList, animated: true)
         }
         if indexPath.row == 1{
-            let donarList = self.storyboard?.instantiateViewController(identifier: "TotalDonarVC") as! TotalDonarVC
-            donarList.title = "Donars"
-            self.navigationController?.pushViewController(donarList, animated: true)
+            if profileLoaded == true{
+                let requestVC = self.storyboard?.instantiateViewController(identifier: "RequestForBloodVC") as! RequestForBloodVC
+                requestVC.title = "Request Blood"
+                requestVC.profile = Myprofile
+                self.navigationController?.pushViewController(requestVC, animated: true)
+            }else{
+                showToast("Wait sometimes! or check your net connections!")
+            }
+            
         }
         if indexPath.row == 2{
-            let donarList = self.storyboard?.instantiateViewController(identifier: "FAQVC") as! FAQVC
-            donarList.title = "FAQ"
-            self.navigationController?.pushViewController(donarList, animated: true)
+            let totalDonarVC = self.storyboard?.instantiateViewController(identifier: "TotalDonarVC") as! TotalDonarVC
+            totalDonarVC.title = "Donars"
+            self.navigationController?.pushViewController(totalDonarVC, animated: true)
         }
         if indexPath.row == 3{
-            let donarList = self.storyboard?.instantiateViewController(identifier: "AboutVC") as! AboutVC
-            donarList.title = "About Us"
-            self.navigationController?.pushViewController(donarList, animated: true)
+            let faqVC = self.storyboard?.instantiateViewController(identifier: "FAQVC") as! FAQVC
+            faqVC.title = "FAQS"
+            self.navigationController?.pushViewController(faqVC, animated: true)
         }
         if indexPath.row == 4{
-            let donarList = self.storyboard?.instantiateViewController(identifier: "RequestForBloodVC") as! RequestForBloodVC
-            donarList.title = "Request Blood"
-            self.navigationController?.pushViewController(donarList, animated: true)
+            let aboutVC = self.storyboard?.instantiateViewController(identifier: "AboutVC") as! AboutVC
+            aboutVC.title = "About Us"
+            self.navigationController?.pushViewController(aboutVC, animated: true)
         }
        }
 //    @objc func connected(_ sender: AnyObject){
 //
 //    }
 }
+// MARK: collection view flowlayout
 extension DashBoardVC: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.calculatewidth()

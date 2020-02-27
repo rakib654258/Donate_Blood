@@ -28,7 +28,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var locationTF: UITextField!
     @IBOutlet weak var updateProfileLbl: UIButton!
     
-    let db = Firestore.firestore()
+    
+    var profile: donarProfile!
     
     var profileImage: UIImage? = nil
     //var profileImage = UIImage(named: "profile")
@@ -48,7 +49,18 @@ class ProfileVC: UIViewController {
         elementsSetup()
     }
     override func viewWillAppear(_ animated: Bool) {
-        fetchUserData()
+        //fetchUserData()
+        nameTF.text = profile.name
+        self.ageTF.text = profile.age ?? "nil"
+        self.locationTF.text = profile.location
+        self.bloodTF.text = profile.blood_group
+        self.mobileTF.text = profile.mobile
+        self.availableSwitch.isOn = profile.available
+        // MARK: download image from firebase
+        if let profileImgUrl = profile.profile_img{
+            self.profileImg.loadImageUsingCacheWithUrlString(urlString: profileImgUrl )
+        }
+        
     }
     func roundShape(){
         profileBGView.layer.cornerRadius = profileBGView.frame.height / 2
@@ -81,34 +93,34 @@ class ProfileVC: UIViewController {
         
         errorLbl.alpha = 0
     }
-    func fetchUserData(){
-            hud.showHUD()
-            guard let userID = Auth.auth().currentUser?.uid else{return}
-            print("Current user id is: \(userID)")
-            currentUserID = userID
-            // get user data
-            db.collection("users").document(userID).getDocument { (snapshot, error) in
-                if let error = error{
-                    hud.hideHUD()
-                    print( "error getting user", error.localizedDescription)
-                }else{
-                    hud.hideHUD()
-                    if let data = snapshot?.data(){
-                        self.nameTF.text = data["name"] as? String
-                        self.ageTF.text = data["age"] as? String ?? "nil"
-                        self.locationTF.text = data["location"] as? String
-                        self.bloodTF.text = data["blood-group"] as? String
-                        self.mobileTF.text = data["mobile"] as? String ?? "+88"
-                        self.availableSwitch.isOn = data["available"] as? Bool ?? true
-                        // MARK: download image from firebase
-                        if let profileImgUrl = data["imageUrl"]{
-                            self.profileImg.loadImageUsingCacheWithUrlString(urlString: profileImgUrl as! String)
-                        }
-                    }
-                }
-                
-            }
-        }
+//    func fetchUserData(){
+//            hud.showHUD()
+//            guard let userID = Auth.auth().currentUser?.uid else{return}
+//            print("Current user id is: \(userID)")
+//            currentUserID = userID
+//            // get user data
+//            db.collection("users").document(userID).getDocument { (snapshot, error) in
+//                if let error = error{
+//                    hud.hideHUD()
+//                    print( "error getting user", error.localizedDescription)
+//                }else{
+//                    hud.hideHUD()
+//                    if let data = snapshot?.data(){
+//                        self.nameTF.text = data["name"] as? String
+//                        self.ageTF.text = data["age"] as? String ?? "nil"
+//                        self.locationTF.text = data["location"] as? String
+//                        self.bloodTF.text = data["blood-group"] as? String
+//                        self.mobileTF.text = data["mobile"] as? String ?? "+88"
+//                        self.availableSwitch.isOn = data["available"] as? Bool ?? true
+//                        // MARK: download image from firebase
+//                        if let profileImgUrl = data["imageUrl"]{
+//                            self.profileImg.loadImageUsingCacheWithUrlString(urlString: profileImgUrl as! String)
+//                        }
+//                    }
+//                }
+//
+//            }
+//        }
     
     
     @IBAction func editOrUpdateAction(_ sender: UIButton) {
@@ -155,13 +167,14 @@ class ProfileVC: UIViewController {
             }
             hud.showHUD()
             //update user data
-            let userRef = db.collection("users").document(currentUserID)
+            let db = Firestore.firestore()
+            let userRef = db.collection("users").document(profile.currentUserID)
             
             // MARK: image set to firebase storage
             // load the profile image
         
             let storageRef = Storage.storage().reference(forURL: "gs://blooddonate-4fa96.appspot.com")
-            let storageProfileRef = storageRef.child("profile").child(currentUserID)
+            let storageProfileRef = storageRef.child("profile").child(profile.currentUserID)
             
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpg"

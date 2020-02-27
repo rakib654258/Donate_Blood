@@ -63,7 +63,7 @@ class TotalDonarVC: UIViewController {
                 print("Error: \(error.localizedDescription)")
             }else{
                 if let data = querySnapshot?.count{
-                    self.APositiveLbl.text = "A+ Donars: \(data)"
+                    self.APositiveLbl.text = "A(+ve) Donars: \(data)"
                 }
             }
         }
@@ -73,7 +73,7 @@ class TotalDonarVC: UIViewController {
                 print("Error: \(error.localizedDescription)")
             }else{
                 if let data = querySnapshot?.count{
-                    self.ANegetiveLbl.text = "A- Donars: \(data)"
+                    self.ANegetiveLbl.text = "A(-ve) Donars: \(data)"
                 }
             }
         }
@@ -83,7 +83,7 @@ class TotalDonarVC: UIViewController {
                 print("Error: \(error.localizedDescription)")
             }else{
                 if let data = querySnapshot?.count{
-                    self.BPositiveLbl.text = "B+ Donars: \(data)"
+                    self.BPositiveLbl.text = "B(+ve) Donars: \(data)"
                 }
             }
         }
@@ -93,7 +93,7 @@ class TotalDonarVC: UIViewController {
                 print("Error: \(error.localizedDescription)")
             }else{
                 if let data = querySnapshot?.count{
-                    self.BNegetiveLbl.text = "B- Donars: \(data)"
+                    self.BNegetiveLbl.text = "B(-ve) Donars: \(data)"
                 }
             }
         }
@@ -103,7 +103,7 @@ class TotalDonarVC: UIViewController {
                 print("Error: \(error.localizedDescription)")
             }else{
                 if let data = querySnapshot?.count{
-                    self.OPositiveLbl.text = "O+ Donars: \(data)"
+                    self.OPositiveLbl.text = "O(+ve) Donars: \(data)"
                 }
             }
         }
@@ -113,7 +113,7 @@ class TotalDonarVC: UIViewController {
                 print("Error: \(error.localizedDescription)")
             }else{
                 if let data = querySnapshot?.count{
-                     self.ONegetiveLbl.text = "O- Donars: \(data)"
+                     self.ONegetiveLbl.text = "O(-ve) Donars: \(data)"
                 }
             }
         }
@@ -123,7 +123,7 @@ class TotalDonarVC: UIViewController {
                 print("Error: \(error.localizedDescription)")
             }else{
                 if let data = querySnapshot?.count{
-                     self.ABPositiveLbl.text = "AB+ Donars: \(data)"
+                     self.ABPositiveLbl.text = "AB(+ve) Donars: \(data)"
                 }
             }
         }
@@ -133,7 +133,7 @@ class TotalDonarVC: UIViewController {
                 print("Error: \(error.localizedDescription)")
             }else{
                 if let data = querySnapshot?.count{
-                    self.ABNegetiveLbl.text = "AB- Donars: \(data)"
+                    self.ABNegetiveLbl.text = "AB(-ve) Donars: \(data)"
                 }
             }
         }

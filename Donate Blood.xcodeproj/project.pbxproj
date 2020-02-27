@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		71934393B7250D46BFDCF6C0 /* Pods_Donate_Blood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3016AB01906204014767358D /* Pods_Donate_Blood.framework */; };
+		B212E8E923FC49540097FA7C /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B212E8E723FC49540097FA7C /* FAQTableViewCell.swift */; };
+		B212E8EA23FC49540097FA7C /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B212E8E823FC49540097FA7C /* FAQTableViewCell.xib */; };
 		B21E23F323D6C4A300D19FEB /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E23F223D6C4A300D19FEB /* iOSDropDown.swift */; };
 		B2211F3823F013340001F96B /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2211F3723F013340001F96B /* AboutVC.swift */; };
 		B2211F3A23F014AD0001F96B /* FAQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2211F3923F014AD0001F96B /* FAQVC.swift */; };
 		B2211F3C23F0153B0001F96B /* RequestForBloodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2211F3B23F0153B0001F96B /* RequestForBloodVC.swift */; };
 		B2211F4023F029F40001F96B /* showToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2211F3F23F029F40001F96B /* showToast.swift */; };
+		B226401723FD9E4200C7B552 /* QsnAns.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226401623FD9E4200C7B552 /* QsnAns.swift */; };
 		B22C7AAE23E684F5009A7562 /* DonarListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C7AAC23E684F5009A7562 /* DonarListCollectionViewCell.swift */; };
 		B22C7AAF23E684F5009A7562 /* DonarListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B22C7AAD23E684F5009A7562 /* DonarListCollectionViewCell.xib */; };
 		B22C7AB123E6A8AC009A7562 /* donarDetailsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C7AB023E6A8AC009A7562 /* donarDetailsDataModel.swift */; };
@@ -27,6 +30,8 @@
 		B245498723D56F5500776986 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245498623D56F5500776986 /* CustomSegmentedControl.swift */; };
 		B245498923D5734E00776986 /* IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245498823D5734E00776986 /* IBInspectable.swift */; };
 		B245498B23D588BD00776986 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245498A23D588BD00776986 /* CustomTextField.swift */; };
+		B2483B3524066FF400CABAD3 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2483B3424066FF400CABAD3 /* LaunchScreenController.swift */; };
+		B2483B372406704C00CABAD3 /* LaunchScreenController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2483B362406704C00CABAD3 /* LaunchScreenController.storyboard */; };
 		B249C6ED23E14ABF00407BD5 /* progressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B249C6EC23E14ABF00407BD5 /* progressHUD.swift */; };
 		B24CF41C23EA8BBA0014BF8C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24CF41B23EA8BBA0014BF8C /* ImageCache.swift */; };
 		B26C4BAD23EBD2C80038C924 /* DonarProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4BAC23EBD2C80038C924 /* DonarProfileVC.swift */; };
@@ -37,17 +42,36 @@
 		B2C6C4DE23D97B1600FA77F7 /* DashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6C4DD23D97B1600FA77F7 /* DashBoardVC.swift */; };
 		B2C6C4E223D97BC900FA77F7 /* IteamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6C4E023D97BC900FA77F7 /* IteamCell.swift */; };
 		B2C6C4E323D97BC900FA77F7 /* IteamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C6C4E123D97BC900FA77F7 /* IteamCell.xib */; };
+		B2CEB1332402989A00C68B6D /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB11F2402989A00C68B6D /* IQTextView.swift */; };
+		B2CEB1342402989A00C68B6D /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1212402989A00C68B6D /* IQPreviousNextView.swift */; };
+		B2CEB1352402989A00C68B6D /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1222402989A00C68B6D /* IQTitleBarButtonItem.swift */; };
+		B2CEB1362402989A00C68B6D /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1232402989A00C68B6D /* IQBarButtonItem.swift */; };
+		B2CEB1372402989A00C68B6D /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1242402989A00C68B6D /* IQToolbar.swift */; };
+		B2CEB1382402989A00C68B6D /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1252402989A00C68B6D /* IQUIView+IQKeyboardToolbar.swift */; };
+		B2CEB1392402989A00C68B6D /* IQInvocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1262402989A00C68B6D /* IQInvocation.swift */; };
+		B2CEB13A2402989A00C68B6D /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1282402989A00C68B6D /* IQKeyboardManagerConstantsInternal.swift */; };
+		B2CEB13B2402989A00C68B6D /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1292402989A00C68B6D /* IQKeyboardManagerConstants.swift */; };
+		B2CEB13C2402989A00C68B6D /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB12A2402989A00C68B6D /* IQKeyboardReturnKeyHandler.swift */; };
+		B2CEB13D2402989A00C68B6D /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB12B2402989A00C68B6D /* IQKeyboardManager.swift */; };
+		B2CEB13E2402989A00C68B6D /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB12E2402989A00C68B6D /* IQUIScrollView+Additions.swift */; };
+		B2CEB13F2402989A00C68B6D /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB12F2402989A00C68B6D /* IQUIViewController+Additions.swift */; };
+		B2CEB1402402989A00C68B6D /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1302402989A00C68B6D /* IQUITextFieldView+Additions.swift */; };
+		B2CEB1412402989A00C68B6D /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1312402989A00C68B6D /* IQUIView+Hierarchy.swift */; };
+		B2CEB1422402989A00C68B6D /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEB1322402989A00C68B6D /* IQNSArray+Sort.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3016AB01906204014767358D /* Pods_Donate_Blood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Donate_Blood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7A01A538AB98C087B556EF /* Pods-Donate Blood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donate Blood.release.xcconfig"; path = "Target Support Files/Pods-Donate Blood/Pods-Donate Blood.release.xcconfig"; sourceTree = "<group>"; };
 		421C0CC631A83B36EBBF0371 /* Pods-Donate Blood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donate Blood.debug.xcconfig"; path = "Target Support Files/Pods-Donate Blood/Pods-Donate Blood.debug.xcconfig"; sourceTree = "<group>"; };
+		B212E8E723FC49540097FA7C /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
+		B212E8E823FC49540097FA7C /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
 		B21E23F223D6C4A300D19FEB /* iOSDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSDropDown.swift; sourceTree = "<group>"; };
 		B2211F3723F013340001F96B /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		B2211F3923F014AD0001F96B /* FAQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQVC.swift; sourceTree = "<group>"; };
 		B2211F3B23F0153B0001F96B /* RequestForBloodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForBloodVC.swift; sourceTree = "<group>"; };
 		B2211F3F23F029F40001F96B /* showToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showToast.swift; sourceTree = "<group>"; };
+		B226401623FD9E4200C7B552 /* QsnAns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QsnAns.swift; path = "Donate Blood/View/FAQ TableView XIB/QsnAns.swift"; sourceTree = SOURCE_ROOT; };
 		B22C7AAC23E684F5009A7562 /* DonarListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarListCollectionViewCell.swift; sourceTree = "<group>"; };
 		B22C7AAD23E684F5009A7562 /* DonarListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonarListCollectionViewCell.xib; sourceTree = "<group>"; };
 		B22C7AB023E6A8AC009A7562 /* donarDetailsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = donarDetailsDataModel.swift; path = "Donate Blood/View/DonarListCollectionView/donarDetailsDataModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -64,6 +88,8 @@
 		B245498623D56F5500776986 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		B245498823D5734E00776986 /* IBInspectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBInspectable.swift; sourceTree = "<group>"; };
 		B245498A23D588BD00776986 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B2483B3424066FF400CABAD3 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
+		B2483B362406704C00CABAD3 /* LaunchScreenController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreenController.storyboard; sourceTree = "<group>"; };
 		B249C6EC23E14ABF00407BD5 /* progressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressHUD.swift; sourceTree = "<group>"; };
 		B24CF41B23EA8BBA0014BF8C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		B26C4BAC23EBD2C80038C924 /* DonarProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarProfileVC.swift; sourceTree = "<group>"; };
@@ -74,6 +100,23 @@
 		B2C6C4DD23D97B1600FA77F7 /* DashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardVC.swift; sourceTree = "<group>"; };
 		B2C6C4E023D97BC900FA77F7 /* IteamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IteamCell.swift; sourceTree = "<group>"; };
 		B2C6C4E123D97BC900FA77F7 /* IteamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IteamCell.xib; sourceTree = "<group>"; };
+		B2CEB11F2402989A00C68B6D /* IQTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTextView.swift; sourceTree = "<group>"; };
+		B2CEB1212402989A00C68B6D /* IQPreviousNextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQPreviousNextView.swift; sourceTree = "<group>"; };
+		B2CEB1222402989A00C68B6D /* IQTitleBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTitleBarButtonItem.swift; sourceTree = "<group>"; };
+		B2CEB1232402989A00C68B6D /* IQBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQBarButtonItem.swift; sourceTree = "<group>"; };
+		B2CEB1242402989A00C68B6D /* IQToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQToolbar.swift; sourceTree = "<group>"; };
+		B2CEB1252402989A00C68B6D /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
+		B2CEB1262402989A00C68B6D /* IQInvocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQInvocation.swift; sourceTree = "<group>"; };
+		B2CEB1282402989A00C68B6D /* IQKeyboardManagerConstantsInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQKeyboardManagerConstantsInternal.swift; sourceTree = "<group>"; };
+		B2CEB1292402989A00C68B6D /* IQKeyboardManagerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQKeyboardManagerConstants.swift; sourceTree = "<group>"; };
+		B2CEB12A2402989A00C68B6D /* IQKeyboardReturnKeyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQKeyboardReturnKeyHandler.swift; sourceTree = "<group>"; };
+		B2CEB12B2402989A00C68B6D /* IQKeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQKeyboardManager.swift; sourceTree = "<group>"; };
+		B2CEB12C2402989A00C68B6D /* IQKeyboardManagerSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerSwift.h; sourceTree = "<group>"; };
+		B2CEB12E2402989A00C68B6D /* IQUIScrollView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIScrollView+Additions.swift"; sourceTree = "<group>"; };
+		B2CEB12F2402989A00C68B6D /* IQUIViewController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIViewController+Additions.swift"; sourceTree = "<group>"; };
+		B2CEB1302402989A00C68B6D /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
+		B2CEB1312402989A00C68B6D /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
+		B2CEB1322402989A00C68B6D /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +146,15 @@
 				3016AB01906204014767358D /* Pods_Donate_Blood.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B212E8E623FC491E0097FA7C /* FAQ TableView XIB */ = {
+			isa = PBXGroup;
+			children = (
+				B212E8E723FC49540097FA7C /* FAQTableViewCell.swift */,
+				B212E8E823FC49540097FA7C /* FAQTableViewCell.xib */,
+			);
+			path = "FAQ TableView XIB";
 			sourceTree = "<group>";
 		};
 		B21E23F123D6C3C900D19FEB /* unused files */ = {
@@ -162,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				B22C7AB023E6A8AC009A7562 /* donarDetailsDataModel.swift */,
+				B226401623FD9E4200C7B552 /* QsnAns.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,10 +222,13 @@
 		B245498323D56B3A00776986 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B212E8E623FC491E0097FA7C /* FAQ TableView XIB */,
 				B22C7AAB23E684CA009A7562 /* DonarListCollectionView */,
 				B2C6C4DF23D97B8100FA77F7 /* DashboardCollectionView XIB */,
 				B245497423D56AF700776986 /* Main.storyboard */,
 				B245497923D56AF800776986 /* LaunchScreen.storyboard */,
+				B2483B362406704C00CABAD3 /* LaunchScreenController.storyboard */,
+				B2483B3424066FF400CABAD3 /* LaunchScreenController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +252,7 @@
 		B245498523D56B9E00776986 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				B2CEB11D2402989A00C68B6D /* IQKeyboardManagerSwift */,
 				B245498623D56F5500776986 /* CustomSegmentedControl.swift */,
 				B245498823D5734E00776986 /* IBInspectable.swift */,
 				B245498A23D588BD00776986 /* CustomTextField.swift */,
@@ -214,6 +271,62 @@
 				B2C6C4E123D97BC900FA77F7 /* IteamCell.xib */,
 			);
 			path = "DashboardCollectionView XIB";
+			sourceTree = "<group>";
+		};
+		B2CEB11D2402989A00C68B6D /* IQKeyboardManagerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				B2CEB11E2402989A00C68B6D /* IQTextView */,
+				B2CEB1202402989A00C68B6D /* IQToolbar */,
+				B2CEB1272402989A00C68B6D /* Constants */,
+				B2CEB12A2402989A00C68B6D /* IQKeyboardReturnKeyHandler.swift */,
+				B2CEB12B2402989A00C68B6D /* IQKeyboardManager.swift */,
+				B2CEB12C2402989A00C68B6D /* IQKeyboardManagerSwift.h */,
+				B2CEB12D2402989A00C68B6D /* Categories */,
+			);
+			path = IQKeyboardManagerSwift;
+			sourceTree = "<group>";
+		};
+		B2CEB11E2402989A00C68B6D /* IQTextView */ = {
+			isa = PBXGroup;
+			children = (
+				B2CEB11F2402989A00C68B6D /* IQTextView.swift */,
+			);
+			path = IQTextView;
+			sourceTree = "<group>";
+		};
+		B2CEB1202402989A00C68B6D /* IQToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				B2CEB1212402989A00C68B6D /* IQPreviousNextView.swift */,
+				B2CEB1222402989A00C68B6D /* IQTitleBarButtonItem.swift */,
+				B2CEB1232402989A00C68B6D /* IQBarButtonItem.swift */,
+				B2CEB1242402989A00C68B6D /* IQToolbar.swift */,
+				B2CEB1252402989A00C68B6D /* IQUIView+IQKeyboardToolbar.swift */,
+				B2CEB1262402989A00C68B6D /* IQInvocation.swift */,
+			);
+			path = IQToolbar;
+			sourceTree = "<group>";
+		};
+		B2CEB1272402989A00C68B6D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B2CEB1282402989A00C68B6D /* IQKeyboardManagerConstantsInternal.swift */,
+				B2CEB1292402989A00C68B6D /* IQKeyboardManagerConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		B2CEB12D2402989A00C68B6D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B2CEB12E2402989A00C68B6D /* IQUIScrollView+Additions.swift */,
+				B2CEB12F2402989A00C68B6D /* IQUIViewController+Additions.swift */,
+				B2CEB1302402989A00C68B6D /* IQUITextFieldView+Additions.swift */,
+				B2CEB1312402989A00C68B6D /* IQUIView+Hierarchy.swift */,
+				B2CEB1322402989A00C68B6D /* IQNSArray+Sort.swift */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +393,9 @@
 				B245497B23D56AF800776986 /* LaunchScreen.storyboard in Resources */,
 				B2A531A223D5AC7800E6C9FB /* signup.xib in Resources */,
 				B245497823D56AF800776986 /* Assets.xcassets in Resources */,
+				B212E8EA23FC49540097FA7C /* FAQTableViewCell.xib in Resources */,
 				B22C7AAF23E684F5009A7562 /* DonarListCollectionViewCell.xib in Resources */,
+				B2483B372406704C00CABAD3 /* LaunchScreenController.storyboard in Resources */,
 				B245497623D56AF700776986 /* Main.storyboard in Resources */,
 				B2954AB723E00F1C00E3E79D /* GoogleService-Info.plist in Resources */,
 			);
@@ -336,25 +451,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2211F4023F029F40001F96B /* showToast.swift in Sources */,
+				B2CEB13B2402989A00C68B6D /* IQKeyboardManagerConstants.swift in Sources */,
 				B22C7AB323E6ECA6009A7562 /* ProfileVC.swift in Sources */,
+				B2CEB1362402989A00C68B6D /* IQBarButtonItem.swift in Sources */,
+				B2CEB13A2402989A00C68B6D /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				B2CEB1392402989A00C68B6D /* IQInvocation.swift in Sources */,
+				B2CEB13D2402989A00C68B6D /* IQKeyboardManager.swift in Sources */,
+				B2483B3524066FF400CABAD3 /* LaunchScreenController.swift in Sources */,
+				B2CEB1412402989A00C68B6D /* IQUIView+Hierarchy.swift in Sources */,
+				B2CEB13C2402989A00C68B6D /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				B2CEB1402402989A00C68B6D /* IQUITextFieldView+Additions.swift in Sources */,
+				B2CEB13F2402989A00C68B6D /* IQUIViewController+Additions.swift in Sources */,
+				B2CEB1342402989A00C68B6D /* IQPreviousNextView.swift in Sources */,
 				B2C6C4E223D97BC900FA77F7 /* IteamCell.swift in Sources */,
 				B240979C23EFDFC300937465 /* TotalDonarVC.swift in Sources */,
 				B2211F3A23F014AD0001F96B /* FAQVC.swift in Sources */,
 				B24CF41C23EA8BBA0014BF8C /* ImageCache.swift in Sources */,
 				B245498B23D588BD00776986 /* CustomTextField.swift in Sources */,
 				B2A531A423D5B46C00E6C9FB /* signup.swift in Sources */,
+				B2CEB1352402989A00C68B6D /* IQTitleBarButtonItem.swift in Sources */,
 				B2211F3C23F0153B0001F96B /* RequestForBloodVC.swift in Sources */,
+				B2CEB13E2402989A00C68B6D /* IQUIScrollView+Additions.swift in Sources */,
 				B2211F3823F013340001F96B /* AboutVC.swift in Sources */,
+				B2CEB1332402989A00C68B6D /* IQTextView.swift in Sources */,
 				B29B112723DD6CE500359E72 /* DonarListVC.swift in Sources */,
 				B26C4BAD23EBD2C80038C924 /* DonarProfileVC.swift in Sources */,
 				B2C6C4DE23D97B1600FA77F7 /* DashBoardVC.swift in Sources */,
+				B2CEB1372402989A00C68B6D /* IQToolbar.swift in Sources */,
+				B2CEB1382402989A00C68B6D /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				B22C7AB123E6A8AC009A7562 /* donarDetailsDataModel.swift in Sources */,
 				B245497323D56AF700776986 /* ViewController.swift in Sources */,
 				B249C6ED23E14ABF00407BD5 /* progressHUD.swift in Sources */,
 				B245496F23D56AF700776986 /* AppDelegate.swift in Sources */,
 				B21E23F323D6C4A300D19FEB /* iOSDropDown.swift in Sources */,
 				B22C7AAE23E684F5009A7562 /* DonarListCollectionViewCell.swift in Sources */,
+				B226401723FD9E4200C7B552 /* QsnAns.swift in Sources */,
 				B245497123D56AF700776986 /* SceneDelegate.swift in Sources */,
+				B2CEB1422402989A00C68B6D /* IQNSArray+Sort.swift in Sources */,
+				B212E8E923FC49540097FA7C /* FAQTableViewCell.swift in Sources */,
 				B245498723D56F5500776986 /* CustomSegmentedControl.swift in Sources */,
 				B245498923D5734E00776986 /* IBInspectable.swift in Sources */,
 			);
