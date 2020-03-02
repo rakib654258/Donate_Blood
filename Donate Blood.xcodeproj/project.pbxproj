@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		71934393B7250D46BFDCF6C0 /* Pods_Donate_Blood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3016AB01906204014767358D /* Pods_Donate_Blood.framework */; };
+		B20DEADF240D180800E8628B /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20DEADE240D180800E8628B /* SplashScreenViewController.swift */; };
 		B212E8E923FC49540097FA7C /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B212E8E723FC49540097FA7C /* FAQTableViewCell.swift */; };
 		B212E8EA23FC49540097FA7C /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B212E8E823FC49540097FA7C /* FAQTableViewCell.xib */; };
 		B21E23F323D6C4A300D19FEB /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E23F223D6C4A300D19FEB /* iOSDropDown.swift */; };
@@ -30,8 +31,6 @@
 		B245498723D56F5500776986 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245498623D56F5500776986 /* CustomSegmentedControl.swift */; };
 		B245498923D5734E00776986 /* IBInspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245498823D5734E00776986 /* IBInspectable.swift */; };
 		B245498B23D588BD00776986 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B245498A23D588BD00776986 /* CustomTextField.swift */; };
-		B2483B3524066FF400CABAD3 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2483B3424066FF400CABAD3 /* LaunchScreenController.swift */; };
-		B2483B372406704C00CABAD3 /* LaunchScreenController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2483B362406704C00CABAD3 /* LaunchScreenController.storyboard */; };
 		B249C6ED23E14ABF00407BD5 /* progressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B249C6EC23E14ABF00407BD5 /* progressHUD.swift */; };
 		B24CF41C23EA8BBA0014BF8C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24CF41B23EA8BBA0014BF8C /* ImageCache.swift */; };
 		B26C4BAD23EBD2C80038C924 /* DonarProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4BAC23EBD2C80038C924 /* DonarProfileVC.swift */; };
@@ -64,6 +63,7 @@
 		3016AB01906204014767358D /* Pods_Donate_Blood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Donate_Blood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7A01A538AB98C087B556EF /* Pods-Donate Blood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donate Blood.release.xcconfig"; path = "Target Support Files/Pods-Donate Blood/Pods-Donate Blood.release.xcconfig"; sourceTree = "<group>"; };
 		421C0CC631A83B36EBBF0371 /* Pods-Donate Blood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donate Blood.debug.xcconfig"; path = "Target Support Files/Pods-Donate Blood/Pods-Donate Blood.debug.xcconfig"; sourceTree = "<group>"; };
+		B20DEADE240D180800E8628B /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		B212E8E723FC49540097FA7C /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
 		B212E8E823FC49540097FA7C /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
 		B21E23F223D6C4A300D19FEB /* iOSDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSDropDown.swift; sourceTree = "<group>"; };
@@ -88,8 +88,6 @@
 		B245498623D56F5500776986 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		B245498823D5734E00776986 /* IBInspectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBInspectable.swift; sourceTree = "<group>"; };
 		B245498A23D588BD00776986 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		B2483B3424066FF400CABAD3 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
-		B2483B362406704C00CABAD3 /* LaunchScreenController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreenController.storyboard; sourceTree = "<group>"; };
 		B249C6EC23E14ABF00407BD5 /* progressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressHUD.swift; sourceTree = "<group>"; };
 		B24CF41B23EA8BBA0014BF8C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		B26C4BAC23EBD2C80038C924 /* DonarProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonarProfileVC.swift; sourceTree = "<group>"; };
@@ -227,8 +225,6 @@
 				B2C6C4DF23D97B8100FA77F7 /* DashboardCollectionView XIB */,
 				B245497423D56AF700776986 /* Main.storyboard */,
 				B245497923D56AF800776986 /* LaunchScreen.storyboard */,
-				B2483B362406704C00CABAD3 /* LaunchScreenController.storyboard */,
-				B2483B3424066FF400CABAD3 /* LaunchScreenController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,6 +241,7 @@
 				B2211F3723F013340001F96B /* AboutVC.swift */,
 				B2211F3923F014AD0001F96B /* FAQVC.swift */,
 				B2211F3B23F0153B0001F96B /* RequestForBloodVC.swift */,
+				B20DEADE240D180800E8628B /* SplashScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -395,7 +392,6 @@
 				B245497823D56AF800776986 /* Assets.xcassets in Resources */,
 				B212E8EA23FC49540097FA7C /* FAQTableViewCell.xib in Resources */,
 				B22C7AAF23E684F5009A7562 /* DonarListCollectionViewCell.xib in Resources */,
-				B2483B372406704C00CABAD3 /* LaunchScreenController.storyboard in Resources */,
 				B245497623D56AF700776986 /* Main.storyboard in Resources */,
 				B2954AB723E00F1C00E3E79D /* GoogleService-Info.plist in Resources */,
 			);
@@ -457,7 +453,6 @@
 				B2CEB13A2402989A00C68B6D /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				B2CEB1392402989A00C68B6D /* IQInvocation.swift in Sources */,
 				B2CEB13D2402989A00C68B6D /* IQKeyboardManager.swift in Sources */,
-				B2483B3524066FF400CABAD3 /* LaunchScreenController.swift in Sources */,
 				B2CEB1412402989A00C68B6D /* IQUIView+Hierarchy.swift in Sources */,
 				B2CEB13C2402989A00C68B6D /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				B2CEB1402402989A00C68B6D /* IQUITextFieldView+Additions.swift in Sources */,
@@ -470,6 +465,7 @@
 				B245498B23D588BD00776986 /* CustomTextField.swift in Sources */,
 				B2A531A423D5B46C00E6C9FB /* signup.swift in Sources */,
 				B2CEB1352402989A00C68B6D /* IQTitleBarButtonItem.swift in Sources */,
+				B20DEADF240D180800E8628B /* SplashScreenViewController.swift in Sources */,
 				B2211F3C23F0153B0001F96B /* RequestForBloodVC.swift in Sources */,
 				B2CEB13E2402989A00C68B6D /* IQUIScrollView+Additions.swift in Sources */,
 				B2211F3823F013340001F96B /* AboutVC.swift in Sources */,

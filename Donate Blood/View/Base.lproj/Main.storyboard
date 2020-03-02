@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gUE-ze-kqu">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -8,6 +8,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="qgd-Sn-xma">
+            <objects>
+                <viewController id="gUE-ze-kqu" customClass="SplashScreenViewController" customModule="Donate_Blood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LyB-zm-v0J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="o3l-40-dMf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OcA-z4-GSK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-444" y="125"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -323,7 +338,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TRu-N0-F6U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6Ea-wb-bbU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0fN-Xb-JZO" secondAttribute="trailing" constant="28" id="GKZ-sU-f3P"/>
@@ -494,7 +509,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yEV-t3-B54" firstAttribute="leading" secondItem="b5j-7o-efP" secondAttribute="leading" constant="20" symbolic="YES" id="0RH-pU-XCj"/>
                             <constraint firstItem="VIn-ge-20l" firstAttribute="top" secondItem="yEV-t3-B54" secondAttribute="bottom" id="4K4-G1-8wS"/>
@@ -547,7 +562,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="t6e-GY-Sk9" firstAttribute="trailing" secondItem="dlp-mV-wfu" secondAttribute="trailing" id="TXs-rg-hlX"/>
                             <constraint firstAttribute="bottom" secondItem="dlp-mV-wfu" secondAttribute="bottom" id="UUn-Am-Zqi"/>
@@ -672,7 +687,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MP1-1v-wVs" firstAttribute="centerX" secondItem="7fb-pt-Zn8" secondAttribute="centerX" id="PQI-Xz-KK4"/>
                             <constraint firstItem="MP1-1v-wVs" firstAttribute="centerY" secondItem="7fb-pt-Zn8" secondAttribute="centerY" id="baX-Mm-LVi"/>
@@ -913,7 +928,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Pj-SQ-wT1" firstAttribute="bottom" secondItem="123-be-Pfe" secondAttribute="bottom" id="a6R-Sb-zyh"/>
                             <constraint firstItem="123-be-Pfe" firstAttribute="trailing" secondItem="6Pj-SQ-wT1" secondAttribute="trailing" id="avo-Be-lCi"/>
@@ -939,7 +954,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="792"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47P-KM-2JN">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="792"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkj-R8-sv0" customClass="CustomView" customModule="Donate_Blood" customModuleProvider="target">
                                                 <rect key="frame" x="107.66666666666669" y="16" width="160" height="160"/>
@@ -1082,7 +1097,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzW-Yn-vcA">
-                                                <rect key="frame" x="82.666666666666686" y="508" width="210" height="50"/>
+                                                <rect key="frame" x="82.666666666666686" y="726" width="210" height="50"/>
                                                 <color key="backgroundColor" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="210" id="ScK-gA-KQg"/>
@@ -1102,12 +1117,13 @@
                                             <constraint firstItem="25Z-Pl-7cr" firstAttribute="leading" secondItem="47P-KM-2JN" secondAttribute="leading" constant="32" id="2qa-OA-sQ7"/>
                                             <constraint firstAttribute="bottom" secondItem="QzW-Yn-vcA" secondAttribute="bottom" constant="16" id="3UM-mD-O5r"/>
                                             <constraint firstItem="QzW-Yn-vcA" firstAttribute="centerX" secondItem="47P-KM-2JN" secondAttribute="centerX" id="3ou-Yn-wxW"/>
-                                            <constraint firstItem="QzW-Yn-vcA" firstAttribute="top" secondItem="TF2-Oy-UAX" secondAttribute="bottom" constant="32" id="4n9-OG-uLk"/>
+                                            <constraint firstItem="QzW-Yn-vcA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="TF2-Oy-UAX" secondAttribute="bottom" constant="32" id="4n9-OG-uLk"/>
                                             <constraint firstAttribute="trailing" secondItem="TF2-Oy-UAX" secondAttribute="trailing" constant="32" id="HJW-mm-sGl"/>
                                             <constraint firstItem="TF2-Oy-UAX" firstAttribute="top" secondItem="25Z-Pl-7cr" secondAttribute="bottom" constant="8" id="NOp-gG-NEi"/>
                                             <constraint firstItem="wkj-R8-sv0" firstAttribute="centerX" secondItem="47P-KM-2JN" secondAttribute="centerX" id="NgJ-HP-Iqo"/>
                                             <constraint firstItem="TF2-Oy-UAX" firstAttribute="leading" secondItem="47P-KM-2JN" secondAttribute="leading" constant="32" id="OeY-5M-8Hm"/>
                                             <constraint firstItem="wkj-R8-sv0" firstAttribute="top" secondItem="47P-KM-2JN" secondAttribute="top" constant="16" id="aVP-ZV-aPb"/>
+                                            <constraint firstAttribute="bottom" secondItem="QzW-Yn-vcA" secondAttribute="bottom" constant="16" id="dVa-Qc-mEM"/>
                                             <constraint firstAttribute="trailing" secondItem="25Z-Pl-7cr" secondAttribute="trailing" constant="32" id="fij-hm-NNf"/>
                                             <constraint firstItem="25Z-Pl-7cr" firstAttribute="top" secondItem="wkj-R8-sv0" secondAttribute="bottom" constant="16" id="hj7-t4-eio"/>
                                         </constraints>
@@ -1123,7 +1139,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="NTw-N9-b5o" secondAttribute="bottom" id="Ja3-Xp-Abu"/>
                             <constraint firstItem="NTw-N9-b5o" firstAttribute="top" secondItem="sTI-xB-K6l" secondAttribute="top" constant="20" symbolic="YES" id="SDh-cV-vnm"/>
@@ -1210,7 +1226,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bcL-sO-b8u" firstAttribute="top" secondItem="hbY-Pa-mdp" secondAttribute="top" constant="8" id="8YC-TE-muo"/>
                             <constraint firstItem="bcL-sO-b8u" firstAttribute="leading" secondItem="hbY-Pa-mdp" secondAttribute="leading" constant="8" id="Nez-jL-zG4"/>
@@ -1484,7 +1500,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cn8-PD-O5I" firstAttribute="centerX" secondItem="fgx-x1-Q7B" secondAttribute="centerX" id="0SX-fj-oYL"/>
                             <constraint firstItem="Q2B-8R-M0f" firstAttribute="top" secondItem="0xn-k3-4ML" secondAttribute="bottom" constant="16" id="5au-FG-5Qp"/>
@@ -1533,11 +1549,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPZ-fq-Mq6" customClass="CustomView" customModule="Donate_Blood" customModuleProvider="target">
-                                <rect key="frame" x="16" y="60" width="343" height="736"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPZ-fq-Mq6">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="blood" translatesAutoresizingMaskIntoConstraints="NO" id="cPb-Xg-VYs">
+                                        <rect key="frame" x="20" y="20" width="335" height="748"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDR-As-zXM" customClass="CustomView" customModule="Donate_Blood" customModuleProvider="target">
-                                        <rect key="frame" x="91.666666666666686" y="16" width="160" height="160"/>
+                                        <rect key="frame" x="107.66666666666669" y="16" width="160" height="160"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="b5W-FR-IvM">
                                                 <rect key="frame" x="8" y="8" width="144" height="144"/>
@@ -1579,7 +1598,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xRj-qW-2or">
-                                        <rect key="frame" x="76.000000000000014" y="208" width="191.33333333333337" height="234"/>
+                                        <rect key="frame" x="92.000000000000014" y="208" width="191.33333333333337" height="234"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-Jm-TMR">
                                                 <rect key="frame" x="0.0" y="0.0" width="138.66666666666666" height="234"/>
@@ -1710,7 +1729,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFt-Qe-Cxa">
-                                        <rect key="frame" x="131.66666666666666" y="624" width="80" height="80"/>
+                                        <rect key="frame" x="147.66666666666666" y="656" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rFt-Qe-Cxa" secondAttribute="height" multiplier="1:1" id="3y2-1n-aYd"/>
                                             <constraint firstAttribute="height" constant="80" id="6YH-2F-9Xn"/>
@@ -1728,8 +1747,12 @@
                                     <constraint firstItem="pDR-As-zXM" firstAttribute="centerX" secondItem="RPZ-fq-Mq6" secondAttribute="centerX" id="5du-UX-JcN"/>
                                     <constraint firstItem="xRj-qW-2or" firstAttribute="top" secondItem="pDR-As-zXM" secondAttribute="bottom" constant="32" id="BD0-6f-plg"/>
                                     <constraint firstAttribute="bottom" secondItem="rFt-Qe-Cxa" secondAttribute="bottom" constant="32" id="PF1-1N-dLh"/>
+                                    <constraint firstItem="cPb-Xg-VYs" firstAttribute="leading" secondItem="RPZ-fq-Mq6" secondAttribute="leading" constant="20" symbolic="YES" id="Qo1-Ld-2bZ"/>
                                     <constraint firstItem="xRj-qW-2or" firstAttribute="centerX" secondItem="RPZ-fq-Mq6" secondAttribute="centerX" id="VRC-eu-cVg"/>
                                     <constraint firstItem="rFt-Qe-Cxa" firstAttribute="centerX" secondItem="RPZ-fq-Mq6" secondAttribute="centerX" id="Xbc-d4-mDc"/>
+                                    <constraint firstAttribute="bottom" secondItem="cPb-Xg-VYs" secondAttribute="bottom" id="Ypa-8r-3ma"/>
+                                    <constraint firstItem="cPb-Xg-VYs" firstAttribute="top" secondItem="RPZ-fq-Mq6" secondAttribute="top" constant="20" symbolic="YES" id="csG-1W-olv"/>
+                                    <constraint firstAttribute="trailing" secondItem="cPb-Xg-VYs" secondAttribute="trailing" constant="20" symbolic="YES" id="fDN-QC-S5C"/>
                                     <constraint firstItem="pDR-As-zXM" firstAttribute="top" secondItem="RPZ-fq-Mq6" secondAttribute="top" constant="16" id="zqd-k6-z72"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -1739,24 +1762,15 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                         <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="3" height="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RPZ-fq-Mq6" firstAttribute="leading" secondItem="vUC-3P-r5X" secondAttribute="leading" constant="16" id="9cd-AU-E2j"/>
-                            <constraint firstAttribute="bottom" secondItem="RPZ-fq-Mq6" secondAttribute="bottom" constant="16" id="L2x-80-VA4"/>
-                            <constraint firstItem="RPZ-fq-Mq6" firstAttribute="top" secondItem="vUC-3P-r5X" secondAttribute="top" constant="16" id="oUV-yy-e5k"/>
-                            <constraint firstItem="vUC-3P-r5X" firstAttribute="trailing" secondItem="RPZ-fq-Mq6" secondAttribute="trailing" constant="16" id="wNp-72-1Tk"/>
+                            <constraint firstItem="RPZ-fq-Mq6" firstAttribute="leading" secondItem="vUC-3P-r5X" secondAttribute="leading" id="9cd-AU-E2j"/>
+                            <constraint firstAttribute="bottom" secondItem="RPZ-fq-Mq6" secondAttribute="bottom" id="L2x-80-VA4"/>
+                            <constraint firstItem="RPZ-fq-Mq6" firstAttribute="top" secondItem="vUC-3P-r5X" secondAttribute="top" id="oUV-yy-e5k"/>
+                            <constraint firstItem="vUC-3P-r5X" firstAttribute="trailing" secondItem="RPZ-fq-Mq6" secondAttribute="trailing" id="wNp-72-1Tk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vUC-3P-r5X"/>
                     </view>
@@ -1774,7 +1788,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccN-JT-rby" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3328.985507246377" y="114.50892857142857"/>
+            <point key="canvasLocation" x="3328.8000000000002" y="113.79310344827587"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kfo-3h-OOW">
@@ -1805,6 +1819,7 @@
     <resources>
         <image name="ABOUT US" width="490.5" height="491"/>
         <image name="Call-1" width="180.5" height="180.5"/>
+        <image name="blood" width="725" height="1182"/>
         <image name="location" width="840" height="1063.5"/>
         <image name="phone.circle.fill" catalog="system" width="64" height="60"/>
         <image name="profile" width="490" height="483"/>

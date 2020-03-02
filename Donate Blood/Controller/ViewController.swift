@@ -33,17 +33,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var signupPassTF: UITextField!
     @IBOutlet weak var confirmPassTF: UITextField!
     @IBOutlet weak var signupErrorLbl: UILabel!
-
+    
     //var delegate:UserUidDataPass!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         TransitionToDashboard()
-        // Do any additional setup after loading the view.
-        // signupContrainer.regiter
         textFieldSetup()
         
     }
+    
+    // MARK: fextfield design
     func textFieldSetup(){
         // signin textfields style
         Utilities.styleTextField(signinEmailLbl)
@@ -68,13 +68,14 @@ class ViewController: UIViewController {
       
     }
     override func viewDidAppear(_ animated: Bool) {
+        // check sign in or not
         if Auth.auth().currentUser == nil{
             return
         }else{
             TransitionToDashboard()
         }
+        
     }
-
     @IBAction func customSegmentedControllerAction(_ sender: CustomSegmentedControl) {
         if sender.selectedSegmentIndex == 0{
             UIView.animate(withDuration: 0.5) {
