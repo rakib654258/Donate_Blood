@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,19 +18,19 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9SL-21-je3" customClass="CustomView" customModule="Donate_Blood" customModuleProvider="target">
-                        <rect key="frame" x="4" y="4" width="382" height="92"/>
+                        <rect key="frame" x="8" y="4" width="374" height="92"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yl1-dx-yMC">
-                                <rect key="frame" x="88.5" y="20.5" width="205.5" height="51"/>
+                                <rect key="frame" x="88.5" y="20.5" width="197.5" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donar Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgI-rZ-EcW">
-                                        <rect key="frame" x="0.0" y="0.0" width="205.5" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="197.5" height="21.5"/>
                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donar Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IM-Aa-BT0">
-                                        <rect key="frame" x="0.0" y="29.5" width="205.5" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="29.5" width="197.5" height="21.5"/>
                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -37,7 +38,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OG8-oR-wbZ">
-                                <rect key="frame" x="302" y="14" width="64" height="64"/>
+                                <rect key="frame" x="294" y="14" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="5Nn-QM-5dT"/>
                                     <constraint firstAttribute="width" secondItem="OG8-oR-wbZ" secondAttribute="height" multiplier="1:1" id="KE2-K1-j8M"/>
@@ -123,26 +124,26 @@
                                 <color key="value" red="0.98087948560000005" green="0.23651832340000001" blue="0.2391671836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                <size key="value" width="0.0" height="5"/>
+                                <size key="value" width="0.0" height="3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                <real key="value" value="3"/>
+                                <real key="value" value="2"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                <real key="value" value="4"/>
+                                <real key="value" value="2"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="9SL-21-je3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="37z-ma-tLO"/>
+                <constraint firstItem="9SL-21-je3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="37z-ma-tLO"/>
                 <constraint firstAttribute="bottom" secondItem="9SL-21-je3" secondAttribute="bottom" constant="4" id="5tH-nD-3Pb"/>
                 <constraint firstItem="9SL-21-je3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="JRf-2l-TqE"/>
-                <constraint firstAttribute="trailing" secondItem="9SL-21-je3" secondAttribute="trailing" constant="4" id="owh-yW-ZPh"/>
+                <constraint firstAttribute="trailing" secondItem="9SL-21-je3" secondAttribute="trailing" constant="8" id="owh-yW-ZPh"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="390" height="100"/>

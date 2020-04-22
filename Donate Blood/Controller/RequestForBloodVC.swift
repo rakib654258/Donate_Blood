@@ -20,6 +20,7 @@ class RequestForBloodVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bloodTF: DropDown!
     @IBOutlet weak var hospitalTF: UITextField!
+    @IBOutlet weak var hospitalLocationTF: UITextField!
     @IBOutlet weak var dateTF: UITextField!
     @IBOutlet weak var requestLbl: UIButton!
     
@@ -29,6 +30,7 @@ class RequestForBloodVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         bloodTF.delegate = self
         hospitalTF.delegate = self
+        hospitalLocationTF.delegate = self
         dateTF.delegate = self
         //hideKeyboardGesture()
         self.BloodGroupDropDown()
@@ -57,6 +59,7 @@ class RequestForBloodVC: UIViewController, UITextFieldDelegate {
     func textFieldSetup(){
         Utilities.styleTextField(bloodTF)
         Utilities.styleTextField(hospitalTF)
+        Utilities.styleTextField(hospitalLocationTF)
         Utilities.styleTextField(dateTF)
         
 
@@ -75,6 +78,9 @@ class RequestForBloodVC: UIViewController, UITextFieldDelegate {
     func getDateFromPicker(){
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy HH:mm"
+        let currentDate = NSDate()
+        datePicker.minimumDate = currentDate as Date
+        //datePicker.date = currentDate as Date
         dateTF.text = formatter.string(from: datePicker.date)
     }
     //MARK: Keyboard delegate return key active
@@ -84,9 +90,15 @@ class RequestForBloodVC: UIViewController, UITextFieldDelegate {
             hospitalTF.becomeFirstResponder()
         }else if textField == hospitalTF{
             textField.resignFirstResponder()
+            hospitalLocationTF.becomeFirstResponder()
+            //hideKeyboard()
+        }
+        else if textField == hospitalLocationTF{
+            textField.resignFirstResponder()
             dateTF.becomeFirstResponder()
             //hideKeyboard()
-        }else if textField == dateTF{
+        }
+        else if textField == dateTF{
             textField.resignFirstResponder()
         }
         return true
@@ -109,7 +121,7 @@ class RequestForBloodVC: UIViewController, UITextFieldDelegate {
     }
     func validateField() -> String?{
         //check that all fields are filled in
-        if bloodTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || hospitalTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || dateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+        if bloodTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || hospitalTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || hospitalLocationTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""  || dateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
             return "Please fill in all fields"
         }
         return nil
@@ -129,9 +141,10 @@ class RequestForBloodVC: UIViewController, UITextFieldDelegate {
             let mobile = mobileLbl.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let blood =  bloodTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let hospital = hospitalTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let hospitalLocation = hospitalLocationTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             let date = dateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            print("Requested Info: \(profile.profile_img!), \(name!),\(location!),\(mobile!),\(blood!),\(hospital!),\(date!)")
+            print("Requested Info: \(profile.profile_img!), \(name!),\(location!),\(mobile!),\(blood!),\(hospital!),\(hospitalLocation!),\(date!)")
             self.showToast("Request send Successfully")
         }
     }

@@ -44,7 +44,8 @@ class SplashScreenViewController: UIViewController {
         AppName.widthAnchor.constraint(equalToConstant: self.view.frame.width - 64).isActive = true
         AppName.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
         AppName.text = "Donate Blood"
-        AppName.font = UIFont(name: "Times New Roman", size: 44)
+        //AppName.font = UIFont(name: "Times New Roman-Bold", size: 16)
+        AppName.font = UIFont.boldSystemFont(ofSize: 36.0)
         AppName.textAlignment = .center
         // stack view
         stackView.axis = NSLayoutConstraint.Axis.vertical
@@ -85,13 +86,29 @@ class SplashScreenViewController: UIViewController {
             
             // MARK: check sign in or not
             if Auth.auth().currentUser == nil{
-                let dashboard = self.storyboard?.instantiateViewController(identifier: "ViewController")
-                self.view.window?.rootViewController = dashboard
-                self.view.window?.makeKeyAndVisible()
+                if #available(iOS 13.0, *) {
+                    let dashboard = self.storyboard?.instantiateViewController(identifier: "ViewController")
+                    self.view.window?.rootViewController = dashboard
+                    self.view.window?.makeKeyAndVisible()
+                } else {
+                    // Fallback on earlier versions
+                    let dashboard = self.storyboard?.instantiateViewController(withIdentifier: "ViewController")
+                    self.view.window?.rootViewController = dashboard
+                    self.view.window?.makeKeyAndVisible()
+                }
+                
             }else{
-                let dashboard = self.storyboard?.instantiateViewController(identifier: "DashBoardVCNavigation")
-                self.view.window?.rootViewController = dashboard
-                self.view.window?.makeKeyAndVisible()
+                if #available(iOS 13.0, *) {
+                    let dashboard = self.storyboard?.instantiateViewController(identifier: "DashBoardVCNavigation")
+                    self.view.window?.rootViewController = dashboard
+                    self.view.window?.makeKeyAndVisible()
+                } else {
+                    // Fallback on earlier versions
+                    let dashboard = self.storyboard?.instantiateViewController(withIdentifier: "DashBoardVCNavigation")
+                    self.view.window?.rootViewController = dashboard
+                    self.view.window?.makeKeyAndVisible()
+                }
+                
             }
         }
     }

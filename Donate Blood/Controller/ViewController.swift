@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var signinPassLbl: UITextField!
     @IBOutlet weak var signinViewLbl: CustomView!
     @IBOutlet weak var customSegmentedController: CustomSegmentedControl!
-    @IBOutlet weak var errorLbl: UILabel!
+//    @IBOutlet weak var errorLbl: UILabel!
     // signup textfields
      @IBOutlet weak var signupViewLbl: CustomView!
     @IBOutlet weak var signupNameTF: UITextField!
@@ -125,7 +125,8 @@ class ViewController: UIViewController {
         if error != nil{
             //There's something wrong with the filed, show error
             signupErrorLbl.text = error
-            signupErrorLbl.alpha = 1
+            showToast(error ?? "Something wrong!")
+            //signupErrorLbl.alpha = 1
         }
         else{
             //create cleaned versions of data
@@ -145,8 +146,9 @@ class ViewController: UIViewController {
                     hud.hideHUD()
                     //there was an error to creating the user
                     //self.signupErrorLbl.text = "Error creating user"
-                    self.signupErrorLbl.text = err?.localizedDescription
-                    self.signupErrorLbl.alpha = 1
+                    //self.signupErrorLbl.text = err?.localizedDescription
+                    self.showToast(err?.localizedDescription ?? "Error in signin")
+                    //self.signupErrorLbl.alpha = 1
                 }
                 else{
                     //user create successfully, now store data
@@ -155,8 +157,9 @@ class ViewController: UIViewController {
                         if error != nil{
                             //hud.dismiss(animated: true)
                             hud.hideHUD()
-                            self.signupErrorLbl.text = "Error while saving user data"
-                            self.signupErrorLbl.alpha = 1
+                            //self.signupErrorLbl.text = "Error while saving user data"
+                            self.showToast("Error while saving user data")
+                            //self.signupErrorLbl.alpha = 1
                         }
                     }
                     //hud.dismiss(animated: true)
@@ -181,9 +184,10 @@ class ViewController: UIViewController {
         Auth.auth().signIn(withEmail: email!, password: password!) { (result, error) in
             if error != nil{
                 hud.hideHUD()
-                self.errorLbl.text = error?.localizedDescription
+                //self.errorLbl.text = error?.localizedDescription
+                self.showToast(error?.localizedDescription ?? "Error face to login")
                 //self.errorLbl.text = "error face to login"
-                self.errorLbl.alpha = 1
+                //self.errorLbl.alpha = 1
             }else{
                 print("user signed in with id: \(result?.user.uid ?? "no id ")")
                 //self.delegate.user_uid(uid: (result?.user.uid)!)
@@ -194,7 +198,7 @@ class ViewController: UIViewController {
     }
     
     func TransitionToDashboard(){
-        let dashboard = self.storyboard?.instantiateViewController(identifier: "DashBoardVCNavigation") //as! DashBoardVC
+        let dashboard = self.storyboard?.instantiateViewController(withIdentifier: "DashBoardVCNavigation") //as! DashBoardVC
         //self.navigationController?.pushViewController(dashboard, animated: true)
         self.view.window?.rootViewController = dashboard
         self.view.window?.makeKeyAndVisible()

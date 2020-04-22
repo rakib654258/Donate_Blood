@@ -157,7 +157,7 @@ extension DonarListVC: UICollectionViewDataSource{
 }
 extension DonarListVC: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let donarProfileVC = self.storyboard?.instantiateViewController(identifier: "DonarProfileVC") as! DonarProfileVC
+        let donarProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "DonarProfileVC") as! DonarProfileVC
 
         donarProfileVC.donarProfile = [profile[indexPath.row]]
 

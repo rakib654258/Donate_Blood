@@ -1,8 +1,8 @@
 //
-//  showToast.swift
-//  Donate Blood
+//  Base.swift
+//  World News
 //
-//  Created by RakiB on 9/2/20.
+//  Created by RakiB on 4/3/20.
 //  Copyright © 2020 RK. All rights reserved.
 //
 
@@ -45,11 +45,20 @@ extension UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
 
-        let saveArea = view.safeAreaLayoutGuide
-        label.centerXAnchor.constraint(equalTo: saveArea.centerXAnchor, constant: 0).isActive = true
-        label.leadingAnchor.constraint(greaterThanOrEqualTo: saveArea.leadingAnchor, constant: 15).isActive = true
-        label.trailingAnchor.constraint(lessThanOrEqualTo: saveArea.trailingAnchor, constant: -15).isActive = true
-        label.bottomAnchor.constraint(equalTo: saveArea.bottomAnchor, constant: -30).isActive = true
+        if #available(iOS 11.0, *) {
+            let saveArea = view.safeAreaLayoutGuide
+            label.centerXAnchor.constraint(equalTo: saveArea.centerXAnchor, constant: 0).isActive = true
+            label.leadingAnchor.constraint(greaterThanOrEqualTo: saveArea.leadingAnchor, constant: 15).isActive = true
+            label.trailingAnchor.constraint(lessThanOrEqualTo: saveArea.trailingAnchor, constant: -15).isActive = true
+            label.bottomAnchor.constraint(equalTo: saveArea.bottomAnchor, constant: -30).isActive = true
+        } else {
+            // Fallback on earlier versions
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+            label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
+        }
+        
 
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
             label.alpha = 1

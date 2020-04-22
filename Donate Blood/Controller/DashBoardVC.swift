@@ -87,7 +87,7 @@ class DashBoardVC: UIViewController{
     
     @IBAction func ProfileBtnAction(_ sender: UIButton) {
         if profileLoaded == true{
-            let ProfileVC = self.storyboard?.instantiateViewController(identifier: "ProfileVC") as! ProfileVC
+            let ProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
             ProfileVC.profile = Myprofile
             self.navigationController?.pushViewController(ProfileVC, animated: true)
         }
@@ -107,7 +107,7 @@ class DashBoardVC: UIViewController{
             //Sign out action
             do {
                 try Auth.auth().signOut()
-                let LoginPage = self.storyboard?.instantiateViewController(identifier: "ViewController") as! ViewController
+                let LoginPage = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                 self.view.window?.rootViewController = LoginPage
                 self.view.window?.makeKeyAndVisible()
                 
@@ -142,13 +142,13 @@ extension DashBoardVC: UICollectionViewDataSource{
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            let donarList = self.storyboard?.instantiateViewController(identifier: "DonarListVC") as! DonarListVC
+            let donarList = self.storyboard?.instantiateViewController(withIdentifier: "DonarListVC") as! DonarListVC
             donarList.title = "Donar List"
             self.navigationController?.pushViewController(donarList, animated: true)
         }
         if indexPath.row == 1{
             if profileLoaded == true{
-                let requestVC = self.storyboard?.instantiateViewController(identifier: "RequestForBloodVC") as! RequestForBloodVC
+                let requestVC = self.storyboard?.instantiateViewController(withIdentifier: "RequestForBloodVC") as! RequestForBloodVC
                 requestVC.title = "Request Blood"
                 requestVC.profile = Myprofile
                 self.navigationController?.pushViewController(requestVC, animated: true)
@@ -158,17 +158,17 @@ extension DashBoardVC: UICollectionViewDataSource{
             
         }
         if indexPath.row == 2{
-            let totalDonarVC = self.storyboard?.instantiateViewController(identifier: "TotalDonarVC") as! TotalDonarVC
+            let totalDonarVC = self.storyboard?.instantiateViewController(withIdentifier: "TotalDonarVC") as! TotalDonarVC
             totalDonarVC.title = "Donars"
             self.navigationController?.pushViewController(totalDonarVC, animated: true)
         }
         if indexPath.row == 3{
-            let faqVC = self.storyboard?.instantiateViewController(identifier: "FAQVC") as! FAQVC
+            let faqVC = self.storyboard?.instantiateViewController(withIdentifier: "FAQVC") as! FAQVC
             faqVC.title = "FAQS"
             self.navigationController?.pushViewController(faqVC, animated: true)
         }
         if indexPath.row == 4{
-            let aboutVC = self.storyboard?.instantiateViewController(identifier: "AboutVC") as! AboutVC
+            let aboutVC = self.storyboard?.instantiateViewController(withIdentifier: "AboutVC") as! AboutVC
             aboutVC.title = "About Us"
             self.navigationController?.pushViewController(aboutVC, animated: true)
         }
